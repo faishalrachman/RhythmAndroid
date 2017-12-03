@@ -34,8 +34,29 @@ captures/
 
 # Intellij
 *.iml
+<<<<<<< HEAD
 .idea
 .idea/workspace.xml
 
 # Keystore files
 *.jks
+=======
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/dictionaries
+.idea/libraries
+
+# Keystore files
+*.jks
+
+# External native build folder generated in Android Studio 2.2 and later
+.externalNativeBuild
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Freeline
+freeline.py
+freeline/
+freeline_project_description.json
