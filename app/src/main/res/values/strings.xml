@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">RhythmInnoserve</string>
+    <string name="app_name">RhythmPPG</string>
     <string name="welcome_name">Welcome to RHYTHM</string>
 
     <!--APP CONFIG-->
-    <string name="http_url">http://%s/telemedicine/mobileapi</string>
+    <string name="http_url">http://%s/mobileapi</string>
     <string name="mqtt_url">tcp://%s:1883</string>
     <string name="server_ip_address">192.168.0.7</string>
     <string name="server_http_port">3000</string>
@@ -76,7 +76,7 @@
     <string name="action_sms">action sms</string>
     <string name="friend_delete_success">Friend Deleted</string>
     <string name="no_phone_num">No phone number available</string>
-    <string name="sample_email">daniagung@telemedicine.com</string>
-    <string name="sample_password">daniagung</string>
+    <string name="sample_email">arahsafari@telemedicine.co.id</string>
+    <string name="sample_password">arahsafari</string>
 
 </resources>

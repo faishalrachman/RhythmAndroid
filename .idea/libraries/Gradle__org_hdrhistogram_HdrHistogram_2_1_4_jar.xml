@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.hdrhistogram:HdrHistogram:2.1.4@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hdrhistogram/HdrHistogram/2.1.4/2b0da22320f0ac0bbedc7b9df7881d9853d8a754/HdrHistogram-2.1.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hdrhistogram/HdrHistogram/2.1.4/39075eb528ccfe714f666844068e9f39e7bb1088/HdrHistogram-2.1.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.moquette:moquette-netty-parser:0.8.1@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.moquette/moquette-netty-parser/0.8.1/4035dcb0834f8afea9fd1bdabef778b13b15f007/moquette-netty-parser-0.8.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.moquette/moquette-netty-parser/0.8.1/26818fce049edcc182074c6b5bcb3b4bd75a0932/moquette-netty-parser-0.8.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.buahbatu.rhythm">
+    package="com.ipat.dhakarhythmppgganteng">
 
     <!--PAHO MQTT SERVICE PERMISSION-->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -8,6 +8,10 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!--CALL PERMISSION-->
     <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -18,30 +22,33 @@
         android:icon="@mipmap/logo_square"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:name="com.buahbatu.rhythm.MyApp"
+        android:name="com.ipat.dhakarhythmppgganteng.MyApp"
         android:theme="@style/AppTheme">
         <service android:name="org.eclipse.paho.android.service.MqttService" />
 
-        <activity android:name="com.buahbatu.rhythm.LoginActivity">
+        <activity android:name="com.ipat.dhakarhythmppgganteng.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.buahbatu.rhythm.HomeActivity" />
+        <activity android:name="com.ipat.dhakarhythmppgganteng.HomeActivity" />
         <activity
-            android:name="com.buahbatu.rhythm.AboutActivity"
+            android:name="com.ipat.dhakarhythmppgganteng.AboutActivity"
             android:label="@string/about" />
         <activity
-            android:name="com.buahbatu.rhythm.RegisterActivity"
+            android:name="com.ipat.dhakarhythmppgganteng.RegisterActivity"
             android:label="@string/welcome_name" />
         <activity
-            android:name="com.buahbatu.rhythm.NotificationActivity"
+            android:name="com.ipat.dhakarhythmppgganteng.NotificationActivity"
             android:label="@string/notification" />
         <activity
-            android:name="com.buahbatu.rhythm.DetailActivity"
+            android:name="com.ipat.dhakarhythmppgganteng.DetailActivity"
             android:label="@string/detail" />
+        <activity
+            android:name="com.ipat.dhakarhythmppgganteng.DetailActivityOffline"
+            android:label="Offline Mode" />
     </application>
 
 </manifest>

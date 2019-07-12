@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    tools:context="com.buahbatu.rhythm.RegisterActivity">
+    tools:context="com.ipat.dhakarhythmppgganteng.RegisterActivity">
     <me.relex.circleindicator.CircleIndicator
         android:background="@color/colorPrimaryDark"
         android:id="@+id/pager_indicator"

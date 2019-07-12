@@ -3,273 +3,867 @@
 
     <item
         is-multidex="false"
-        jar="/home/ipat/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-codec\4.0.33.Final\56c31f1e373a9374f56173383fe8b6e089ea0351\netty-codec-4.0.33.Final.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/gson-2.7_6f9a38420a7bd4c67c1eb4e33af39216135602ce.jar" />
+        sha1="56c31f1e373a9374f56173383fe8b6e089ea0351">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\netty-codec-4.0.33.Final_fff855c6a158407c6ede8d8c5cc5ba75a3ab99a3.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/ipat/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-codec-http\4.0.33.Final\aec23f9837699cf1a900a3c86c2b314d30da2454\netty-codec-http-4.0.33.Final.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/okio-1.6.0_b9c893ad6335f70754634e926cb70f8c756dc6c6.jar" />
+        sha1="aec23f9837699cf1a900a3c86c2b314d30da2454">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\netty-codec-http-4.0.33.Final_92323dfd6855aff5ee906e21bcb224ffe1e09903.jar" />
     </item>
     <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/4d47206359df36f98e04496897729d71d6bf2ff6/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_0e74ebd3de0f49bcd65c1ba559f48ebdfbad9d8d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/08f1554191c4b623245db7f11242572a5146031a/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="88998b1d461a43d0d81167d8da7cc6ce3cf12af9">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_fcab666937f09948dd6093a5c028b33dd34e2e79.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/b7c0f3b7ba23c09f300c033956217d0efea68bae/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_893cd5f104897c14c375c99a3f6a15475b895313.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/5d30c9c014ff5e8bba56063bdae44864858f881b/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_18783aeaf742154b1d71c3c85514d83f200b0fb7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/okhttp-3.2.0_4c717e8952fee76ccd07876e09a3542eebc954bd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/cf0c76a0fac911e9f237f5a61e5a07ddadd211e1/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="2181055be8a630f727d41d4dc15adfad283474bb">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_f5fe1849ba96df099289ff7cf628fcfb9ac6e693.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v3.0.2/5d4eb08a326bdbd7fbbddc769666898c9936b282/MPAndroidChart-v3.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="5d4eb08a326bdbd7fbbddc769666898c9936b282">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/MPAndroidChart-v3.0.2_f9266379e5c5cbf9a99ec2f9f9c622fee98356cc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/cf5f00e3f9912a26a0897abdea7aeb2ba7c0ea85/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_4af8e7b068c84a61388eb99f10ecd0df59ab92ad.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/7dc8401e0551a9d2bb53b4dde55f576bb9b02221/output/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_e540044c34395dca04dca55ed549687cebc41f14.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/support-annotations-25.0.1_ceb8fea40e1921edd26d6c79defc7f4f740d8cb1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/f713ef2042c22fa9a1fb4b460e0e636cafaec83f/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="3b236883e0df6002cabb01ce57d00a5b1e5de610">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_99509c3b8cdce69cbc11d07768d72e82dbdee68a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/f4eea79631a0caebed80c4974ecb36534fd78ff9/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_6f88c124311c888e9b80df0cd1ebb69deaedb494.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/b96b7d27fd112805f7e1caa326eb50abb22d0c06/output/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_ddf14bb06f465c032ef09db643850ba9a51ab991.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/b96b7d27fd112805f7e1caa326eb50abb22d0c06/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_790b19fa181ed0b7c5235effeb823aa45df0bccd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/a2acaef3725b6fda8174068ef793a852d90f40a0/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="297d4bcf6ed4e747a1bf7d0d094a2d911a8d3a8e">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_608ac0660bae9a18b1cf50ab16d46ecbf8e08984.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/7dc8401e0551a9d2bb53b4dde55f576bb9b02221/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_a1a9e60bd0f6c42f951e538c5ef4314c68d3a491.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/97dc82b30d18b637c9096c270620bc4f78a57afe/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="1db6784d006818fee2591f13b0bf09ac31a3d49a">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_27a23b0f2d2b00c8bab951b8f541d508dc384bf9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/cf5f00e3f9912a26a0897abdea7aeb2ba7c0ea85/output/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_03c523c5b24f4f899ae86e32c0ce12558bb556a3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/53c3f077027f0f3bf149a75aa7b5af6d922e4270/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_1652a65cfe1542642b2ddba84deea3aacd661588.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/79e591a3687f72c05e660ac5782ff8c2e31414b4/output/jars/classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\73829e5b621013e0b480f9dcea86e3ea74f851ca\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="26.0.2"
         sha1="a07818a1ecabdb149998823429cce555af4b9cba">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_066d569c42b94ac592eea3b8e1a302d0aa764345.jar" />
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d74c51a3cded2f3825d7b91d784cf97c47b009ad\classes.dex" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/ipat/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.android.service/1.0.2/2d956522c556caeb35148445ecd059ebe67331f6/org.eclipse.paho.android.service-1.0.2.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="2d956522c556caeb35148445ecd059ebe67331f6">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/org.eclipse.paho.android.service-1.0.2_29d5c7877acb33591ae2ca43d5efb6382baefb4a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.2"
-        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.4.0_2dd2fe0c9838ed65f38ba22da6f78299851aa1db.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/ipat/.android/build-cache/0ff63123a5bbd62752c62d91a7c19d66117faf7d/output/jars/classes.jar"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\7fbe5f9fb2bc9f8049b7af8bfd0c083434691b1b\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="c1b6ab157e8e12cb08b9ee82bb5e3c5d22632eb3">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_29d13dcd1746853b1aabcc0cba3c2b724e30fbca.jar" />
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_4e06b0efe759fb5b2aecab4eee039eebacec1666.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/ipat/.android/build-cache/5d30c9c014ff5e8bba56063bdae44864858f881b/output/jars/libs/internal_impl-25.0.1.jar"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-common\4.0.33.Final\1a1fde71cb95a6e18754b0fd7ac6749f15a86543\netty-common-4.0.33.Final.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
-        sha1="f83b00041ecfba705603fec40363416c7de69719">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_15e64ba21c0c6cb53d926b72d81ed6b348279060.jar" />
+        sha1="1a1fde71cb95a6e18754b0fd7ac6749f15a86543">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\netty-common-4.0.33.Final_7da11a1a013057e4377d10d18f11e74e3c56f358.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/ipat/.android/build-cache/f9ad666de625277ca57761e2307437bc33d8a388/output/jars/classes.jar"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\0003ecf354490db233caef787b426caa0de5ed2c\output\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.1_3e227256c06c64a0b09210d7ff2b7c750bdf29e3.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\ea27defd62a9429266799c5360ab7e6d74900804\output\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_5a3ea240d814133d7ccd98603bd78a8588abb950\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-transport\4.0.33.Final\287c2378318efc12d6bfe00835cd66317fc53dcd\netty-transport-4.0.33.Final.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="287c2378318efc12d6bfe00835cd66317fc53dcd">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\netty-transport-4.0.33.Final_b6753fe777fc83afa989718259aec31d2ae29e19\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-buffer\4.0.33.Final\dd14c35b020af7aa1c6fed7ec5e67a2aa165619e\netty-buffer-4.0.33.Final.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="dd14c35b020af7aa1c6fed7ec5e67a2aa165619e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\netty-buffer-4.0.33.Final_1fbcd8f31a48bdd83f8e364087b1660a8e4d9e2b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\2eefbeca9918b971f8aa7c948188012f8e92a062\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2ae8e189904e14dc005cc342e171e26357cde8ad\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\f17a1c842b0b5b6a7cdf20460dfb230401ea73a1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2181055be8a630f727d41d4dc15adfad283474bb">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8fa12cae7ce8b04f4fc5f2d00944e72534b51bea\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\aa893f6a77251b149a809d9702afc696844898c4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="88998b1d461a43d0d81167d8da7cc6ce3cf12af9">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_92f82368dd55a7fcf04d5cf3dfc86c55efe08f8e.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.moquette\moquette-broker\0.8.1\8e437691e8741e46d9b1cd7dc9c2afe312d4c8af\moquette-broker-0.8.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8e437691e8741e46d9b1cd7dc9c2afe312d4c8af">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\moquette-broker-0.8.1_f6317411c5333dd29d07ab04a0a731648deeac5b\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\6001a2065db249176bb5c1ce3d538aec842dcc88\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_852c011de74f67cc2e846f1780d9deb0214fc5ce.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.eclipse.paho\org.eclipse.paho.client.mqttv3\1.0.2\11752d3f24d1a9deda4533a7ca18d8496417ceeb\org.eclipse.paho.client.mqttv3-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="11752d3f24d1a9deda4533a7ca18d8496417ceeb">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\org.eclipse.paho.client.mqttv3-1.0.2_b5a40a32fd86cd660559d2af6365b1584293d0e0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\ffdf2ddf3d2d17e88bc3fe3e6bf0fbf2f549b8a7\output\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_02b466af75878883e4939edda57d41d19bd32fe6\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\gson-2.7_8253789b4e358751b9bd3cfc0d57ecfae4c22114.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\uk.me.berndporr\iirj\1.0\9097b5a0f5f7a057c054464b06dc16009c66cac8\iirj-1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9097b5a0f5f7a057c054464b06dc16009c66cac8">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\iirj-1.0_92797e86ca1b3a53bf12ebef3fbdb0f3e1bd8638\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_52f2d467637c98373b3cabeaa1f47471b409d456\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.5\6b262da268f8ad9eff941b25503a9198f0a0ac93\slf4j-api-1.7.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6b262da268f8ad9eff941b25503a9198f0a0ac93">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\slf4j-api-1.7.5_138e2d8d7aa63b164d1e17b75092b4026c5783c4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\04e35b54ee1807a70e9c9f9ed56df4c2bcf24520\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_d30d016653855f0ac1b8f4541130cfef1e7bab35.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Install\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\25.0.1\support-annotations-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.1_7f54ea98db42d8ae6db29d2e46ba2c5ab4fda9d8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-handler\4.0.33.Final\88325df280c3ba83011cf442883f9f55dc83d5bb\netty-handler-4.0.33.Final.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="88325df280c3ba83011cf442883f9f55dc83d5bb">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\netty-handler-4.0.33.Final_a4190bb2ce289aaf1c1e7deb651eee5c6a92a01c\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\8e08706615b8d3165d59cfdc2ed2e7c5fa1fd1d0\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_a3cb9a2562a6a03b6f09177b51e9d785aa1dde10.jar" />
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_cc5eef876edefec01c7a2fa828530869a3e5e209.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Project\Android\innoserve\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_9d4f6ee3700769cf2f4fcdf9d572bbe13f24795f\classes.dex" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/ipat/.android/build-cache/48a4c6651a15126fa67e638e0abbba00e82744f6/output/jars/libs/internal_impl-25.0.1.jar"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\0003ecf354490db233caef787b426caa0de5ed2c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_0032500eb345da524663f5d3111cca16a96e6070.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\ea27defd62a9429266799c5360ab7e6d74900804\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_654ac8218694a3d088eb16a19f5c761370634a9c.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.eclipse.paho\org.eclipse.paho.android.service\1.0.2\2d956522c556caeb35148445ecd059ebe67331f6\org.eclipse.paho.android.service-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2d956522c556caeb35148445ecd059ebe67331f6">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\org.eclipse.paho.android.service-1.0.2_09dc4b218f78b2fb1ab5029235e53b464bfad5e2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.hdrhistogram\HdrHistogram\2.1.4\2b0da22320f0ac0bbedc7b9df7881d9853d8a754\HdrHistogram-2.1.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2b0da22320f0ac0bbedc7b9df7881d9853d8a754">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\HdrHistogram-2.1.4_ccb65cb85e1d28b58f963d610de53927d95bdb95\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.2.0_fa67bb7a6ef8ab40bbde1d304a0584ca9701ca33\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\bc4477abebd34075f3d32fd318947faed70df07e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3b236883e0df6002cabb01ce57d00a5b1e5de610">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_735a6b23fb7ec3dd85bc01fbaf3401ac5e827365\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\416441248cc91b389ea867fd3e57afecf764dfc0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2a791bcf07d6b341ebd89aa7b2c49ef753ae7c81\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\c31e6ac30debca071e1e89a2ee5e06c573ab03a4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_ed35d82df2c62bfece2cd43ce0e84ee2bc0f3a93.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\eef4bf60d23267a085916d25243e19ed67b15986\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_35eb31cfa578cdd59f09163ff994e96b118c565a.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.moquette\moquette-parser-commons\0.8.1\6bf8edc30645a0de56e8b9b47c8e4c5dd271061d\moquette-parser-commons-0.8.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6bf8edc30645a0de56e8b9b47c8e4c5dd271061d">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\moquette-parser-commons-0.8.1_d1167efbaa2486d8d5fbc3c49e05768b5f916ce6\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\416441248cc91b389ea867fd3e57afecf764dfc0\output\jars\libs\internal_impl-25.0.1.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/internal_impl-25.0.1_84a3d8d8294633ebdbf732fc29ccf3ddc62f32c7.jar" />
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.1_3e3904c8621dd8bf71f058cbfc043988aa155ba3.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Project\Android\innoserve\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a7b1d787629c559d5ba5a08408f5356a710a0cdc">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_26b0c21b810e28744eb3ca8ccc7f2baf5122f95e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\c908c91d88e10de919abb437bf8e1a0ecc477b37\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1db6784d006818fee2591f13b0bf09ac31a3d49a">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a898e7eabf62853ca458c844e8d98b7bf489e1a7\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\commons-codec\commons-codec\1.10\4b95f4897fa13f2cd904aee711aeafc0c5295cd8\commons-codec-1.10.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4b95f4897fa13f2cd904aee711aeafc0c5295cd8">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-codec-1.10_7af48e0b215278f6e56c960bfe0de3d144ecf156\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.mapdb\mapdb\1.0.8\64485a221d9095fc7ab9b50cc34c6b4b58467e2e\mapdb-1.0.8.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="64485a221d9095fc7ab9b50cc34c6b4b58467e2e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\mapdb-1.0.8_c37aa75d1fcf385f50712b2bc520c3439780f414\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.4.0\ea392375cf9ff59234a82e7928a204215ccc98cd\butterknife-annotations-8.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\butterknife-annotations-8.4.0_d8f04a2ec52fb7f28164ebdbf72eb0f2792586b8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v3.0.2\5d4eb08a326bdbd7fbbddc769666898c9936b282\MPAndroidChart-v3.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5d4eb08a326bdbd7fbbddc769666898c9936b282">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\MPAndroidChart-v3.0.2_489ecf41ec1656e89dc0cac676d299b8cd38c3c3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\2eefbeca9918b971f8aa7c948188012f8e92a062\output\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_260ba44d061b95d992b6d4bae1538d35eccfd2db\classes.dex" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/ipat/.gradle/caches/modules-2/files-2.1/org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2/11752d3f24d1a9deda4533a7ca18d8496417ceeb/org.eclipse.paho.client.mqttv3-1.0.2.jar"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-log4j12\1.7.5\6edffc576ce104ec769d954618764f39f0f0f10d\slf4j-log4j12-1.7.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6edffc576ce104ec769d954618764f39f0f0f10d">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\slf4j-log4j12-1.7.5_aaacf8be9cf758fac29a0beeadc8c73548ca5071.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\31eda2ede83ab62bfdf144dd0613835457511f0f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="297d4bcf6ed4e747a1bf7d0d094a2d911a8d3a8e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7e682cee36989212fee21f15bbd434adcb9314d8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-math3\3.6.1\e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf\commons-math3-3.6.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-math3-3.6.1_cc58c04d89415a5d1f2e111d7506c53f193fd4fb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.moquette\moquette-netty-parser\0.8.1\4035dcb0834f8afea9fd1bdabef778b13b15f007\moquette-netty-parser-0.8.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4035dcb0834f8afea9fd1bdabef778b13b15f007">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\moquette-netty-parser-0.8.1_b6e76e098aa18f888beeb3492f628a70baab340b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\log4j\log4j\1.2.17\5af35056b4d257e4b64b9e8069c0746e8b08629f\log4j-1.2.17.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5af35056b4d257e4b64b9e8069c0746e8b08629f">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\log4j-1.2.17_b0cc287a263785f38cc16e2f1ed5c78dbece39c2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\ffdf2ddf3d2d17e88bc3fe3e6bf0fbf2f549b8a7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_562f7244d9d3da74760249131f2b16acfd7d4874\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-codec-http\4.0.33.Final\aec23f9837699cf1a900a3c86c2b314d30da2454\netty-codec-http-4.0.33.Final.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="aec23f9837699cf1a900a3c86c2b314d30da2454">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\netty-codec-http-4.0.33.Final_92323dfd6855aff5ee906e21bcb224ffe1e09903\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\aa893f6a77251b149a809d9702afc696844898c4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="88998b1d461a43d0d81167d8da7cc6ce3cf12af9">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_92f82368dd55a7fcf04d5cf3dfc86c55efe08f8e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\0003ecf354490db233caef787b426caa0de5ed2c\output\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_3e227256c06c64a0b09210d7ff2b7c750bdf29e3\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\okio-1.6.0_52f2d467637c98373b3cabeaa1f47471b409d456.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\6001a2065db249176bb5c1ce3d538aec842dcc88\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_852c011de74f67cc2e846f1780d9deb0214fc5ce\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\ea27defd62a9429266799c5360ab7e6d74900804\output\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.1_5a3ea240d814133d7ccd98603bd78a8588abb950.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-transport\4.0.33.Final\287c2378318efc12d6bfe00835cd66317fc53dcd\netty-transport-4.0.33.Final.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="287c2378318efc12d6bfe00835cd66317fc53dcd">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\netty-transport-4.0.33.Final_b6753fe777fc83afa989718259aec31d2ae29e19.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\7fbe5f9fb2bc9f8049b7af8bfd0c083434691b1b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c1b6ab157e8e12cb08b9ee82bb5e3c5d22632eb3">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4e06b0efe759fb5b2aecab4eee039eebacec1666\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\c31e6ac30debca071e1e89a2ee5e06c573ab03a4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1108575c7dc7b7f5b378b3290ac90de81a9b8830">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ed35d82df2c62bfece2cd43ce0e84ee2bc0f3a93\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.moquette\moquette-broker\0.8.1\8e437691e8741e46d9b1cd7dc9c2afe312d4c8af\moquette-broker-0.8.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="8e437691e8741e46d9b1cd7dc9c2afe312d4c8af">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\moquette-broker-0.8.1_f6317411c5333dd29d07ab04a0a731648deeac5b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-buffer\4.0.33.Final\dd14c35b020af7aa1c6fed7ec5e67a2aa165619e\netty-buffer-4.0.33.Final.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="dd14c35b020af7aa1c6fed7ec5e67a2aa165619e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\netty-buffer-4.0.33.Final_1fbcd8f31a48bdd83f8e364087b1660a8e4d9e2b.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-codec\4.0.33.Final\56c31f1e373a9374f56173383fe8b6e089ea0351\netty-codec-4.0.33.Final.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="56c31f1e373a9374f56173383fe8b6e089ea0351">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\netty-codec-4.0.33.Final_fff855c6a158407c6ede8d8c5cc5ba75a3ab99a3\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\2eefbeca9918b971f8aa7c948188012f8e92a062\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_2ae8e189904e14dc005cc342e171e26357cde8ad.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.7_8253789b4e358751b9bd3cfc0d57ecfae4c22114\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\ffdf2ddf3d2d17e88bc3fe3e6bf0fbf2f549b8a7\output\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.1_02b466af75878883e4939edda57d41d19bd32fe6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\uk.me.berndporr\iirj\1.0\9097b5a0f5f7a057c054464b06dc16009c66cac8\iirj-1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="9097b5a0f5f7a057c054464b06dc16009c66cac8">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\iirj-1.0_92797e86ca1b3a53bf12ebef3fbdb0f3e1bd8638.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.eclipse.paho\org.eclipse.paho.client.mqttv3\1.0.2\11752d3f24d1a9deda4533a7ca18d8496417ceeb\org.eclipse.paho.client.mqttv3-1.0.2.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="11752d3f24d1a9deda4533a7ca18d8496417ceeb">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/org.eclipse.paho.client.mqttv3-1.0.2_697c1353d68484a11b4bc9c1a554c5cfd6d6c826.jar" />
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\org.eclipse.paho.client.mqttv3-1.0.2_b5a40a32fd86cd660559d2af6365b1584293d0e0.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/ipat/.android/build-cache/48a4c6651a15126fa67e638e0abbba00e82744f6/output/jars/classes.jar"
+        jar="D:\Install\AndroidSDK\extras\android\m2repository\com\android\support\support-annotations\25.0.1\support-annotations-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\support-annotations-25.0.1_7f54ea98db42d8ae6db29d2e46ba2c5ab4fda9d8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\04e35b54ee1807a70e9c9f9ed56df4c2bcf24520\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d30d016653855f0ac1b8f4541130cfef1e7bab35\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.5\6b262da268f8ad9eff941b25503a9198f0a0ac93\slf4j-api-1.7.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6b262da268f8ad9eff941b25503a9198f0a0ac93">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\slf4j-api-1.7.5_138e2d8d7aa63b164d1e17b75092b4026c5783c4\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\okhttp-3.2.0_fa67bb7a6ef8ab40bbde1d304a0584ca9701ca33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v3.0.2\5d4eb08a326bdbd7fbbddc769666898c9936b282\MPAndroidChart-v3.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5d4eb08a326bdbd7fbbddc769666898c9936b282">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\MPAndroidChart-v3.0.2_489ecf41ec1656e89dc0cac676d299b8cd38c3c3.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\ea27defd62a9429266799c5360ab7e6d74900804\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_654ac8218694a3d088eb16a19f5c761370634a9c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-log4j12\1.7.5\6edffc576ce104ec769d954618764f39f0f0f10d\slf4j-log4j12-1.7.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6edffc576ce104ec769d954618764f39f0f0f10d">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\slf4j-log4j12-1.7.5_aaacf8be9cf758fac29a0beeadc8c73548ca5071\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\c908c91d88e10de919abb437bf8e1a0ecc477b37\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1db6784d006818fee2591f13b0bf09ac31a3d49a">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_a898e7eabf62853ca458c844e8d98b7bf489e1a7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.hdrhistogram\HdrHistogram\2.1.4\2b0da22320f0ac0bbedc7b9df7881d9853d8a754\HdrHistogram-2.1.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2b0da22320f0ac0bbedc7b9df7881d9853d8a754">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\HdrHistogram-2.1.4_ccb65cb85e1d28b58f963d610de53927d95bdb95.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\0003ecf354490db233caef787b426caa0de5ed2c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0032500eb345da524663f5d3111cca16a96e6070\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\8e08706615b8d3165d59cfdc2ed2e7c5fa1fd1d0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cc5eef876edefec01c7a2fa828530869a3e5e209\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\bc4477abebd34075f3d32fd318947faed70df07e\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3b236883e0df6002cabb01ce57d00a5b1e5de610">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_735a6b23fb7ec3dd85bc01fbaf3401ac5e827365.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\eef4bf60d23267a085916d25243e19ed67b15986\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_35eb31cfa578cdd59f09163ff994e96b118c565a\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-handler\4.0.33.Final\88325df280c3ba83011cf442883f9f55dc83d5bb\netty-handler-4.0.33.Final.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="88325df280c3ba83011cf442883f9f55dc83d5bb">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\netty-handler-4.0.33.Final_a4190bb2ce289aaf1c1e7deb651eee5c6a92a01c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.moquette\moquette-parser-commons\0.8.1\6bf8edc30645a0de56e8b9b47c8e4c5dd271061d\moquette-parser-commons-0.8.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="6bf8edc30645a0de56e8b9b47c8e4c5dd271061d">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\moquette-parser-commons-0.8.1_d1167efbaa2486d8d5fbc3c49e05768b5f916ce6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\f17a1c842b0b5b6a7cdf20460dfb230401ea73a1\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2181055be8a630f727d41d4dc15adfad283474bb">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_8fa12cae7ce8b04f4fc5f2d00944e72534b51bea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\416441248cc91b389ea867fd3e57afecf764dfc0\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.2"
         sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
-        <dex dex="/home/ipat/Project/innoserve/app/build/intermediates/pre-dexed/debug/classes_f968e7d3795e409befdc1c835785256e30be5737.jar" />
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_2a791bcf07d6b341ebd89aa7b2c49ef753ae7c81.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.mapdb\mapdb\1.0.8\64485a221d9095fc7ab9b50cc34c6b4b58467e2e\mapdb-1.0.8.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="64485a221d9095fc7ab9b50cc34c6b4b58467e2e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\mapdb-1.0.8_c37aa75d1fcf385f50712b2bc520c3439780f414.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\2eefbeca9918b971f8aa7c948188012f8e92a062\output\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\internal_impl-25.0.1_260ba44d061b95d992b6d4bae1538d35eccfd2db.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\416441248cc91b389ea867fd3e57afecf764dfc0\output\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_3e3904c8621dd8bf71f058cbfc043988aa155ba3\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\com.jakewharton\butterknife-annotations\8.4.0\ea392375cf9ff59234a82e7928a204215ccc98cd\butterknife-annotations-8.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\butterknife-annotations-8.4.0_d8f04a2ec52fb7f28164ebdbf72eb0f2792586b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.eclipse.paho\org.eclipse.paho.android.service\1.0.2\2d956522c556caeb35148445ecd059ebe67331f6\org.eclipse.paho.android.service-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="2d956522c556caeb35148445ecd059ebe67331f6">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\org.eclipse.paho.android.service-1.0.2_09dc4b218f78b2fb1ab5029235e53b464bfad5e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\commons-codec\commons-codec\1.10\4b95f4897fa13f2cd904aee711aeafc0c5295cd8\commons-codec-1.10.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4b95f4897fa13f2cd904aee711aeafc0c5295cd8">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\commons-codec-1.10_7af48e0b215278f6e56c960bfe0de3d144ecf156.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-math3\3.6.1\e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf\commons-math3-3.6.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\commons-math3-3.6.1_cc58c04d89415a5d1f2e111d7506c53f193fd4fb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\31eda2ede83ab62bfdf144dd0613835457511f0f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="297d4bcf6ed4e747a1bf7d0d094a2d911a8d3a8e">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_7e682cee36989212fee21f15bbd434adcb9314d8.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.netty\netty-common\4.0.33.Final\1a1fde71cb95a6e18754b0fd7ac6749f15a86543\netty-common-4.0.33.Final.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.2"
+        sha1="1a1fde71cb95a6e18754b0fd7ac6749f15a86543">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\transforms\dex\debug\folders\1000\10\netty-common-4.0.33.Final_7da11a1a013057e4377d10d18f11e74e3c56f358\classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\log4j\log4j\1.2.17\5af35056b4d257e4b64b9e8069c0746e8b08629f\log4j-1.2.17.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="5af35056b4d257e4b64b9e8069c0746e8b08629f">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\log4j-1.2.17_b0cc287a263785f38cc16e2f1ed5c78dbece39c2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\ffdf2ddf3d2d17e88bc3fe3e6bf0fbf2f549b8a7\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_562f7244d9d3da74760249131f2b16acfd7d4874.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.gradle\caches\modules-2\files-2.1\io.moquette\moquette-netty-parser\0.8.1\4035dcb0834f8afea9fd1bdabef778b13b15f007\moquette-netty-parser-0.8.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="4035dcb0834f8afea9fd1bdabef778b13b15f007">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\moquette-netty-parser-0.8.1_b6e76e098aa18f888beeb3492f628a70baab340b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Faishal Rachman\.android\build-cache\73829e5b621013e0b480f9dcea86e3ea74f851ca\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.2"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="D:\Project\Android\innoserve\app\build\intermediates\pre-dexed\debug\classes_d74c51a3cded2f3825d7b91d784cf97c47b009ad.jar" />
     </item>
 
 </items>
