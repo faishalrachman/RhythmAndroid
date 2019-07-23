@@ -3,6 +3,8 @@
     package="com.ipat.dhakarhythmppgganteng">
 
     <!--PAHO MQTT SERVICE PERMISSION-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />  <!--FAST NETWORK PERMISSION-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -27,6 +29,7 @@
         <service android:name="org.eclipse.paho.android.service.MqttService" />
 
         <activity android:name="com.ipat.dhakarhythmppgganteng.LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -45,7 +48,9 @@
             android:label="@string/notification" />
         <activity
             android:name="com.ipat.dhakarhythmppgganteng.DetailActivity"
-            android:label="@string/detail" />
+            android:label="@string/detail" >
+
+        </activity>
         <activity
             android:name="com.ipat.dhakarhythmppgganteng.DetailActivityOffline"
             android:label="Offline Mode" />

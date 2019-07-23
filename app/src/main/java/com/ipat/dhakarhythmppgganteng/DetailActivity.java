@@ -1,5 +1,6 @@
 package com.ipat.dhakarhythmppgganteng;
 
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.graphics.RectF;
 import android.media.MediaPlayer;
@@ -19,6 +20,7 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.ipat.dhakarhythmppgganteng.model.ItemDevice;
@@ -28,6 +30,7 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.robinhood.spark.SparkAdapter;
 
+import org.apache.log4j.jmx.LoggerDynamicMBean;
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
@@ -46,6 +49,8 @@ import java.util.TimerTask;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import me.aflak.bluetooth.Bluetooth;
+import me.aflak.bluetooth.interfaces.DeviceCallback;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -108,7 +113,7 @@ public class DetailActivity extends AppCompatActivity {
 //    }
 
     private MqttAndroidClient mqttClient;
-
+    private static String TAG = "DetailActivity";
     private List<String> subscribedTopic = new ArrayList<>();
     private List<Float> ecgData = new ArrayList<>();
     private List<Float> ecgAllData = new ArrayList<>();
@@ -116,6 +121,7 @@ public class DetailActivity extends AppCompatActivity {
     private List<Entry> ecgEntry = new ArrayList<>();
     private LineDataSet dataset;
     private LineData linedata;
+    String topicPrefix = "";
     //END
 
     private String phoneEmergencyNumber = "";
@@ -123,7 +129,8 @@ public class DetailActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
     private boolean ringtoneIsIdle = true;
-
+    Bluetooth bluetooth;
+    String deviceId;
 
 
     boolean isNerima = false;
@@ -136,7 +143,7 @@ public class DetailActivity extends AppCompatActivity {
             public void connectionLost(Throwable cause) {
                 Toast.makeText(getApplicationContext(),"Connection Lost",Toast.LENGTH_SHORT).show();
                 System.out.println("Connection was lost!");
-                t.cancel();
+//                t.cancel();
             }
 
             @Override
@@ -150,15 +157,15 @@ public class DetailActivity extends AppCompatActivity {
                     case "bpm":
                         itemRate.setText(String.format(Locale.US, "%.0f", Float.parseFloat(new String(message.getPayload()))));
                         break;
-                    case "ecg"://awalnya visual
-                        fps_counter += 1;
-                        String[] data = new String(message.getPayload()).split(":");
-                        for (int i = 1; i < data.length; i++) {
-                            ecgAllData.add(Float.parseFloat(data[i]));
-                        }
-                        isNerima = true;
-                        lineChart.invalidate();
-                        break;
+//                    case "ecg"://awalnya visual
+//                        fps_counter += 1;
+//                        String[] data = new String(message.getPayload()).split(":");
+//                        for (int i = 1; i < data.length; i++) {
+//                            ecgAllData.add(Float.parseFloat(data[i]));
+//                        }
+//                        isNerima = true;
+//                        lineChart.invalidate();
+//                        break;
                     case "n":
                         String alertString = new String(message.getPayload());
                         switch (alertString.toLowerCase()) {
@@ -255,6 +262,54 @@ public class DetailActivity extends AppCompatActivity {
 
 
         AppSetting.showProgressDialog(DetailActivity.this, "Retrieving data");
+//        AndroidNetworking.get(AppSetting.getHttpAddress(DetailActivity.this)
+//                +getString(R.string.login_url))
+//                .addQueryParameter("email", info.username)
+//                .addQueryParameter("password", info.password)
+//                .setPriority(Priority.MEDIUM).build()
+//                .getAsJSONObject(new JSONObjectRequestListener() {
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//                        AppSetting.dismissProgressDialog();
+//                        try{
+//                            ItemDevice device = ItemDevice.jsonToDevice(response
+//                                    .getJSONArray("data_pasien").getJSONObject(0));
+//
+//                            System.out.println(response.toString());
+//
+//                            friendFullName.setText(device.getName());
+//                            fullname = device.full_name;
+//                            friendAddress.setText(device.address);
+//                            friendPhone.setText(device.phone);
+////                            phoneNumber = device.phone; /*setup phone*/
+//                            friendPhone.setText(device.emergencyPhone);
+//                            phoneEmergencyNumber = device.emergencyPhone; /*setup phone*/
+//                            friendGender.setText(device.isMale() ? "Male":"Female");
+//                            friendAge.setText(device.age);
+//
+//                            itemName.setText(device.getName());
+//                            itemId.setText(String.format(Locale.US, "%s: %s", getString(R.string.device_id),
+//                                    device.deviceId));
+//                            itemId.setText(String.format(Locale.US, "%s: %s", getString(R.string.device_id),
+//                                    "ECG001"));
+//                            this.deviceId = "ECG001";
+//                            setupMqtt(deviceId);
+//                            setupChart();
+//                            connectBluetooth(deviceId);
+//                            setupCondition(isMale());
+//
+//                        }catch (JSONException ex){
+//                            ex.printStackTrace();
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onError(ANError anError) {
+//                        AppSetting.dismissProgressDialog();
+//                        Log.i("Detail", "onError: "+anError.getErrorBody());
+//                    }
+//                });
+
 
         AndroidNetworking.get(AppSetting.getHttpAddress(DetailActivity.this)
                 +getString(R.string.login_url))
@@ -286,7 +341,8 @@ public class DetailActivity extends AppCompatActivity {
                                     device.deviceId));
 //                            itemId.setText(String.format(Locale.US, "%s: %s", getString(R.string.device_id),
 //                                    "ECG001"));
-
+                            setupChart();
+                            connectBluetooth(device.deviceId);
                             setupMqtt(device.deviceId);
                             setupCondition(device.isMale());
 
@@ -299,8 +355,12 @@ public class DetailActivity extends AppCompatActivity {
                     public void onError(ANError anError) {
                         AppSetting.dismissProgressDialog();
                         Log.i("Detail", "onError: "+anError.getErrorBody());
+                        setupChart();
+                        connectBluetooth("ECG001");
+                        Toast.makeText(DetailActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
                     }
                 });
+
     }
 
     void setupCondition(boolean isMale){
@@ -328,17 +388,73 @@ public class DetailActivity extends AppCompatActivity {
         }
     }
 
+    void setupChart(){
+        ecgEntry.add(new Entry(0,0));
+
+        dataset = new LineDataSet(ecgEntry,"ECG Data");
+        dataset.setColor(getResources().getColor(R.color.colorPrimary));
+        dataset.setLineWidth(2);
+        dataset.setDrawCircles(false);
+        dataset.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+
+        dataset.setDrawValues(false);
+        dataset.setFillColor(R.color.colorPrimary);
+        dataset.setValueTextColor(R.color.colorPrimaryDark);
+
+        linedata = new LineData(dataset);
+        lineChart.setData(linedata);
+        lineChart.setDrawMarkers(false);
+        lineChart.setDrawBorders(true);
+        lineChart.setBorderWidth(0.001f);
+        lineChart.setVisibleXRangeMaximum(150);
+        lineChart.setVisibleXRangeMinimum(0);
+        Description desc = new Description();
+        desc.setText("ECG Data");
+        lineChart.setDescription(desc);
+        lineChart.isAutoScaleMinMaxEnabled();
+//        lineChart.setScaleMinima(800,1000);
+
+        float min = -2f;
+        float max = 3f;
+        int count = 10;
+        YAxis leftAxis = lineChart.getAxisLeft();
+//                        leftAxis.setAxisLineWidth(0.01f);
+        leftAxis.setAxisMinimum(min);
+        leftAxis.setAxisMaximum(max);
+//                        leftAxis.setGranularity(0.5f);
+        leftAxis.setGridLineWidth(1);
+        leftAxis.setGranularityEnabled(true);
+        leftAxis.setDrawGridLines(true);
+        leftAxis.setAxisLineColor(R.color.colorGreen);
+        leftAxis.setLabelCount(count,true);
+        YAxis rightAxis = lineChart.getAxisRight();
+        rightAxis.setAxisMaximum(max);
+        rightAxis.setAxisMinimum(min);
+        rightAxis.setDrawLabels(false);
+        rightAxis.setGridLineWidth(1);
+        rightAxis.setLabelCount(count,true);
+//                        rightAxis.setGranularity(0.5f);
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setGranularity(1);
+        xAxis.setDrawLabels(false);
+        xAxis.setLabelCount(40,true);
+        xAxis.setDrawGridLines(true);
+        Log.d("Spacing", "Top = " + String.valueOf(rightAxis.getSpaceTop()) + "Bottom = " + String.valueOf(rightAxis.getSpaceBottom()));
+        t.scheduleAtFixedRate(ttask,17,10);
+    }
     void setupMqtt(String deviceId){
         /*MQTT RELATED*/
 //        subscribedTopic.add("rhythm/"+deviceId+"/visual");
-        String topicPrefix = AppSetting.getTopic(DetailActivity.this);
+        Log.d(TAG, "setupMqtt: DEVICE="+deviceId);
+
+        this.topicPrefix = AppSetting.getTopic(DetailActivity.this);
         String bpm = topicPrefix + "/bpm";
         String notification = topicPrefix + "/n";
         String ecg = topicPrefix + "/ecg";
         System.out.println(bpm);
         subscribedTopic.add(bpm);
         subscribedTopic.add(notification);
-        subscribedTopic.add(ecg);
+//        subscribedTopic.add(ecg);
         if (mqttClient == null) {
             mqttClient = AppSetting.getMqttClient(DetailActivity.this);
             try {
@@ -352,52 +468,7 @@ public class DetailActivity extends AppCompatActivity {
 
                         Log.i("MQTT","Connected");
                         Toast.makeText(getApplicationContext(),"Connected",Toast.LENGTH_SHORT).show();
-                        ecgEntry.add(new Entry(0,0));
 
-                        dataset = new LineDataSet(ecgEntry,"ECG Data");
-                        dataset.setColor(getResources().getColor(R.color.colorPrimary));
-                        dataset.setLineWidth(2);
-                        dataset.setDrawCircles(false);
-                        dataset.setMode(LineDataSet.Mode.CUBIC_BEZIER);
-
-                        dataset.setDrawValues(false);
-                        dataset.setFillColor(R.color.colorPrimary);
-                        dataset.setValueTextColor(R.color.colorPrimaryDark);
-                        
-                        linedata = new LineData(dataset);
-                        lineChart.setData(linedata);
-                        lineChart.setDrawMarkers(false);
-                        lineChart.setDrawBorders(true);
-                        lineChart.setBorderWidth(0.001f);
-                        lineChart.setVisibleXRangeMaximum(150);
-                        lineChart.setVisibleXRangeMinimum(0);
-                        float min = -1f;
-                        float max = 2f;
-                        int count = 10;
-                        YAxis leftAxis = lineChart.getAxisLeft();
-//                        leftAxis.setAxisLineWidth(0.01f);
-                        leftAxis.setAxisMinimum(min);
-                        leftAxis.setAxisMaximum(max);
-//                        leftAxis.setGranularity(0.5f);
-                        leftAxis.setGridLineWidth(1);
-                        leftAxis.setGranularityEnabled(true);
-                        leftAxis.setDrawGridLines(true);
-                        leftAxis.setAxisLineColor(R.color.colorGreen);
-                        leftAxis.setLabelCount(count,true);
-                        YAxis rightAxis = lineChart.getAxisRight();
-                        rightAxis.setAxisMaximum(max);
-                        rightAxis.setAxisMinimum(min);
-                        rightAxis.setDrawLabels(false);
-                        rightAxis.setGridLineWidth(1);
-                        rightAxis.setLabelCount(count,true);
-//                        rightAxis.setGranularity(0.5f);
-                        XAxis xAxis = lineChart.getXAxis();
-                        xAxis.setGranularity(1);
-                        xAxis.setDrawLabels(false);
-                        xAxis.setLabelCount(40,true);
-                        xAxis.setDrawGridLines(true);
-                        Log.d("Spacing", "Top = " + String.valueOf(rightAxis.getSpaceTop()) + "Bottom = " + String.valueOf(rightAxis.getSpaceBottom()));
-                        t.scheduleAtFixedRate(ttask,17,10);
                         resumeMqtt();
                     }
 
@@ -456,6 +527,8 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        if (bluetooth.isConnected())
+        bluetooth.disconnect();
         Log.i("Detail", "onDestroy: ");
         for (String topic:subscribedTopic){
             Log.i("Detail", "onDestroy: "+topic);
@@ -479,19 +552,22 @@ public class DetailActivity extends AppCompatActivity {
         @Override
         public void run() {
 //        Toast.makeText(getApplicationContext(),"Ganteng",Toast.LENGTH_SHORT).show();
-            if (ecgAllData.size() > 1) {
+            if (ecgAllData.size() > 3) {
                 float data = ecgAllData.get(0);
                 linedata.addEntry(new Entry(Z,data),0);//INSERT LAST
                 Z++;
-                ecgAllData.remove(0);
                 ecgAllData.remove(0);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
 //                        lineChart.setData(linedata);
                         if (Z > 200) {
-                            lineChart.setVisibleXRangeMaximum(Z);
+//                            dataset.removeFirst();
+//                            lineChart.setVisibleXRangeMaximum(200);
                             lineChart.moveViewToX(Z-200);
+//                            lineChart.centerViewTo(Z-200,0, YAxis.AxisDependency.RIGHT);
+//                            dataset.removeEntry(0);
+
                         }
                         lineChart.notifyDataSetChanged();
                         lineChart.invalidate();
@@ -515,10 +591,12 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         ButterKnife.bind(this);
+        setupBluetooth();
 
         /*DETAIL INFORMATION*/
         setupDetail();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -546,5 +624,88 @@ public class DetailActivity extends AppCompatActivity {
                 break;
         }
         return super.onOptionsItemSelected(item);
+    }
+    void reconnect(){
+        connectBluetooth(this.deviceId);
+    }
+    void setupBluetooth(){
+        bluetooth = new Bluetooth(getApplicationContext());
+        bluetooth.setDeviceCallback(new DeviceCallback() {
+            @Override
+            public void onDeviceConnected(BluetoothDevice device) {
+                Log.d(TAG, "onDeviceConnected: "+device.getName());
+                bluetooth.send("Connected");
+                AppSetting.dismissProgressDialog();
+//                setupChart();
+            }
+
+            @Override
+            public void onDeviceDisconnected(BluetoothDevice device, String message) {
+                Log.d(TAG, "onDeviceDisconnected: "+message);
+                reconnect();
+            }
+
+            @Override
+            public void onMessage(String message) {
+                String[] data = message.split(":");
+                for (int i = 1; i < data.length; i++) {
+                    ecgAllData.add(Float.parseFloat(data[i]));
+                }
+                if (mqttClient != null && mqttClient.isConnected()){
+                    try {
+
+                        mqttClient.publish(topicPrefix+"/ecg",message.getBytes(),0,true);
+                    } catch (MqttException e) {
+                        e.printStackTrace();
+                    }
+                }
+                runOnUiThread(
+                        new Runnable() {
+                            @Override
+                            public void run() {
+                                fps_counter += 1;
+                                isNerima = true;
+                                lineChart.invalidate();
+                            }
+                        }
+                );
+                Log.d(TAG, "onMessage: "+message);
+            }
+
+            @Override
+            public void onError(int errorCode) {
+
+                Log.d(TAG, "onError: "+errorCode);
+                reconnect();
+            }
+
+            @Override
+            public void onConnectError(BluetoothDevice device, String message) {
+                Log.d(TAG, "onConnectError: "+message);
+                reconnect();
+            }
+        });
+    }
+
+    void connectBluetooth(String name){
+        this.deviceId = name;
+        bluetooth.onStart();
+        if (bluetooth.isEnabled()){
+            Log.d(TAG, "connectBluetooth: Connecting to"+name);
+            bluetooth.connectToName(name);
+        } else {
+            bluetooth.showEnableDialog(this);
+        }
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop(); //bluetooth.onStop();
     }
 }
