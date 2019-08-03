@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
-    tools:context="com.ipat.dhakarhythmppgganteng.LoginActivity"
+    tools:context="com.faishalrachman.amonsecg.LoginActivity"
     android:weightSum="1">
 
     <ImageView
