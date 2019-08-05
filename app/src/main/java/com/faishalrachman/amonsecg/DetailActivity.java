@@ -1,14 +1,18 @@
 package com.faishalrachman.amonsecg;
 
+import android.Manifest;
 import android.app.ActivityManager;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +27,7 @@ import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
+import com.androidnetworking.core.Core;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.faishalrachman.amonsecg.services.CoreService;
@@ -34,6 +39,11 @@ import com.github.mikephil.charting.charts.*;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -162,7 +172,7 @@ public class DetailActivity extends AppCompatActivity {
 
     boolean isNerima = false;
     int fps_counter = 0;
-    TimerTask ttask = new MyTimerTask();
+    MyTimerTask ttask = new MyTimerTask();
     Timer t = new Timer();
 
     void setupMqttCallBack() {
@@ -278,8 +288,12 @@ public class DetailActivity extends AppCompatActivity {
 //                            itemId.setText(String.format(Locale.US, "%s: %s", getString(R.string.device_id),
 //                                    "ECG001"));
 
-                            setupChart();
-                            startCoreService(device.deviceId);
+//                            setupChart();
+                            boolean se = isMyServiceRunning(CoreService.class);
+                            if (!se) {
+                                Log.d(TAG, "onResponse: Serpis "+se);
+                                startCoreService(device.deviceId);
+                            }
 //                            connectBluetooth(device.deviceId);
 //                            setupMqtt(device.deviceId);
                             setupCondition(device.isMale());
@@ -464,32 +478,50 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        if (bluetooth.isConnected())
-            bluetooth.disconnect();
-        Log.i("Detail", "onDestroy: ");
-        for (String topic : subscribedTopic) {
-            Log.i("Detail", "onDestroy: " + topic);
-            try {
-                mqttClient.unsubscribe(topic);
-            } catch (MqttException ex) {
-                // do nothing
-                // un-subscribe failed
-            }
-        }
+    protected void onPause() {
+        super.onPause();
+    }
 
-        if (mqttClient != null) {
-            mqttClient.unregisterResources();
-            mqttClient.close();
-        }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: Start");
+        if (!ttask.is_running)
+            setupChart();
+    }
+
+    @Override
+    protected void onDestroy() {
+//        if (bluetooth.isConnected())
+//            bluetooth.disconnect();
+//        Log.i("Detail", "onDestroy: ");
+//        for (String topic : subscribedTopic) {
+//            Log.i("Detail", "onDestroy: " + topic);
+//            try {
+//                mqttClient.unsubscribe(topic);
+//            } catch (MqttException ex) {
+//                // do nothing
+//                // un-subscribe failed
+//            }
+//        }
+//
+//        if (mqttClient != null) {
+//            mqttClient.unregisterResources();
+//            mqttClient.close();
+//        }
+        Log.d(TAG, "onDestroy: Stop SErvice");
+        stopService(mServiceIntent);
+        unregisterReceiver(updateUIReceiver);
         super.onDestroy();
     }
 
     int Z = 0;
 
     public class MyTimerTask extends TimerTask {
+        public boolean is_running = false;
         @Override
         public void run() {
+            is_running = true;
 //        Toast.makeText(getApplicationContext(),"Ganteng",Toast.LENGTH_SHORT).show();
             if (ecgAllData.size() > 3) {
                 float data = ecgAllData.get(0);
@@ -545,6 +577,21 @@ public class DetailActivity extends AppCompatActivity {
             }
         };
         registerReceiver(updateUIReceiver,filter);
+
+        Dexter.withActivity(this)
+                .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE).withListener(new MultiplePermissionsListener() {
+            @Override
+            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                Log.d(TAG, "onPermissionsChecked: "+report.toString());
+            }
+
+            @Override
+            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+
+            }
+        }).check();
+
 //        setupBluetooth();
 
 
@@ -585,8 +632,13 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(new Intent(DetailActivity.this, AboutActivity.class));
                 break;
             case R.id.action_logout:
+                if (isMyServiceRunning(CoreService.class))
+                    stopService(mServiceIntent);
+                unregisterReceiver(updateUIReceiver);
+                Toast.makeText(this, "Logout berhasil, Silahkan jalankan kembali aplikasi ini", Toast.LENGTH_SHORT).show();
                 AppSetting.setLogin(DetailActivity.this, AppSetting.LOGGED_OUT);
-                startActivity(new Intent(DetailActivity.this, LoginActivity.class));
+//                System.exit(0);
+//                startActivity(new Intent(DetailActivity.this, LoginActivity.class));
                 finish();
                 break;
         }

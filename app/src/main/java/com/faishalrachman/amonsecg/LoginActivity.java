@@ -1,11 +1,15 @@
 package com.faishalrachman.amonsecg;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,14 +18,21 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.judemanutd.autostarter.AutoStartPermissionHelper;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +40,7 @@ import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity {
 
+    public final static String TAG = "LoginActivity";
     @BindView(R.id.text_email)
     TextInputLayout textEmail;
     @BindView(R.id.text_user_password)
@@ -36,6 +48,8 @@ public class LoginActivity extends AppCompatActivity {
 
     @OnClick(R.id.button_login)
     void onLoginClick() {
+
+
         if (TextUtils.isEmpty(textEmail.getEditText().getText().toString())) {
             textUserPass.setError(null);
             textEmail.setError(getString(R.string.error_form));
@@ -165,6 +179,25 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    public  boolean isStoragePermissionGranted() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                    == PackageManager.PERMISSION_GRANTED) {
+                Log.v(TAG,"Permission is granted");
+                return true;
+            } else {
+
+                Log.v(TAG,"Permission is revoked");
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                return false;
+            }
+        }
+        else { //permission is automatically granted on sdk<23 upon installation
+            Log.v(TAG,"Permission is granted");
+            return true;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -172,6 +205,11 @@ public class LoginActivity extends AppCompatActivity {
             setContentView(R.layout.activity_login);
             ButterKnife.bind(this);
             setTitle(getString(R.string.login));
+            isStoragePermissionGranted();
+
+
+            AutoStartPermissionHelper.getInstance().getAutoStartPermission(getApplicationContext());
+            Toast.makeText(this, "Allow permission dulu", Toast.LENGTH_SHORT).show();
         } else {
             moveToDetailActivity();
         }

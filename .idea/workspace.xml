@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="Core" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -14,50 +15,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aeb4b284-7f2b-4bbf-95c7-bfa4635c102c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreRestarter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/NotificationHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_judemanutd_autostarter_1_0_3_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_justadeveloper96_android_permissionhelper_1_1_1_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_karumi_dexter_5_0_0_aar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__de_siegmar_fastcsv_1_0_3_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/ECGCSVHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/ipat/dhakarhythmppgganteng/ExampleInstrumentedTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/faishalrachman/amonsecg/ExampleInstrumentedTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/AboutActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/AboutActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/ApManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/ApManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/AppSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/AppSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/DetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/DetailActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/DetailActivityOffline.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/DetailActivityOffline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/HomeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/HomeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/LoginActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/MyApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/MyApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/NotificationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/NotificationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/OfflineMode.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/OfflineMode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/RegisterActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/algo/ECGClassification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/algo/ECGClassification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/fragment/DataFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/fragment/DataFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/fragment/TutorialFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/fragment/TutorialFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/misc/ViewHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/misc/ViewHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/model/Classifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/model/Classifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/model/Doctor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/model/Doctor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/model/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/model/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/model/ItemDevice.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/model/ItemDevice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/model/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/model/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/model/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/model/Request.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_about.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_detail.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_home.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notification.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/ipat/dhakarhythmppgganteng/ExampleUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/faishalrachman/amonsecg/ExampleUnitTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/AppSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/AppSetting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/DetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/DetailActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreRestarter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreRestarter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/NotificationHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/NotificationHelper.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,8 +65,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
+            <state relative-caret-position="1159">
+              <caret line="61" column="44" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3154">
+              <caret line="204" column="18" selection-start-line="204" selection-start-column="18" selection-end-line="204" selection-end-column="18" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,26 +86,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/DetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="559" column="31" selection-start-line="559" selection-start-column="31" selection-end-line="559" selection-end-column="31" />
+            <state relative-caret-position="57">
+              <caret line="143" column="30" selection-start-line="143" selection-start-column="30" selection-end-line="147" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3758#3790#0" expanded="true" />
-                <element signature="e#16545#16574#0" expanded="true" />
-                <element signature="e#26558#27023#0" expanded="true" />
-                <element signature="e#27022#27023#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="155" column="5" lean-forward="true" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#22575#23036#0" expanded="true" />
+                <element signature="e#23035#23036#0" expanded="true" />
+                <element signature="e#26039#26040#0" expanded="true" />
+                <element signature="e#28640#28641#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -119,8 +102,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreRestarter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state relative-caret-position="456">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,17 +114,43 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/AppSetting.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+            <state relative-caret-position="249">
+              <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#saveECGSignal#0;class#CoreService#0" />
+                <element signature="e#9164#9165#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/NotificationActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/NotificationHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-912">
-              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            <state relative-caret-position="1292">
+              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/ECGCSVHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="42" selection-start-column="42" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -149,7 +158,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
+            <state relative-caret-position="513">
               <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
             </state>
           </provider>
@@ -158,20 +167,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+            <state relative-caret-position="76">
+              <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="19" selection-end-column="66" />
             </state>
           </provider>
           <provider editor-type-id="android-manifest" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -185,37 +185,41 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onResponse</find>
-      <find>Log.i</find>
-      <find>rhythm PPG</find>
-      <find>bluetooth</find>
-      <find>pref</find>
-      <find>bluetooth.connectToName</find>
-      <find>bluetoothConn</find>
-      <find>connectBluetooh</find>
-      <find>Bluetooth</find>
-      <find>setupBluetooth</find>
-      <find>coreServ</find>
+      <find>getNotifi``</find>
+      <find>getNoti`</find>
+      <find>getApplicationContext()</find>
+      <find>this.ctx</find>
+      <find>getNotifi</find>
+      <find>Service is running</find>
+      <find>builder</find>
+      <find>isMyService</find>
+      <find>isMyServiceRunning</find>
       <find>mServiceIntent</find>
-      <find>deviceNaME</find>
-      <find>this.deviceName</find>
-      <find>notification</find>
-      <find>&quot;n&quot;</find>
-      <find>onDestroy</find>
+      <find>new CoreService</find>
+      <find>logout</find>
+      <find>onTaskRemo</find>
+      <find>onTask</find>
+      <find>onTaskRemoved</find>
+      <find>startForeground</find>
       <find>onStart</find>
-      <find>Restart</find>
-      <find>connectBluetooth</find>
-      <find>Notification</find>
-      <find>onMessage</find>
-      <find>timer</find>
-      <find>t.sche</find>
-      <find>t.schedu</find>
-      <find>setup</find>
+      <find>startCoreService</find>
+      <find>startService</find>
+      <find>coreService</find>
+      <find>setupbluetooth</find>
+      <find>setupBluetooth</find>
+      <find>bluetooth</find>
+      <find>void</find>
+      <find>ecgData</find>
       <find>onCreate</find>
-      <find>startCore</find>
-      <find>reconnect</find>
-      <find>connecting to</find>
+      <find>onDestroy</find>
+      <find>bluetooth setup</find>
+      <find>conn</find>
+      <find>connecting</find>
     </findStrings>
+    <replaceStrings>
+      <replace>this.ctx</replace>
+      <replace>ctx</replace>
+    </replaceStrings>
   </component>
   <component name="GenerateSignedApkSettings">
     <option name="KEY_STORE_PATH" value="D:\Project\Android\ipat.jks" />
@@ -233,15 +237,19 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/DetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ipat/dhakarhythmppgganteng/algo/ECGClassification.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ipat/amonsecg/DetailActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ipat/amonsecg/services/CoreService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/ipat/amonsecg/services/CoreRestarter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/AppSetting.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/NotificationHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreRestarter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/CSVHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/ECGCSVHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/PermissionHelper.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/NotificationHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/AppSetting.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/DetailActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreRestarter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreService.java" />
       </list>
     </option>
@@ -249,7 +257,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="25" />
-    <option name="width" value="1853" />
+    <option name="width" value="927" />
     <option name="height" value="1055" />
   </component>
   <component name="ProjectView">
@@ -257,17 +265,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="innoserve" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="innoserve" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
             </path>
             <path>
               <item name="innoserve" type="1abcf292:AndroidViewProjectNode" />
@@ -290,13 +295,9 @@
             <path>
               <item name="innoserve" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="innoserve" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="amonsecg" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="innoserve" type="1abcf292:AndroidViewProjectNode" />
@@ -306,8 +307,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -486,15 +485,15 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32829374" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.2861771" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.28556034" />
       <window_info anchor="bottom" id="Android Profiler" order="8" weight="0.32976446" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Logcat" order="10" visible="true" weight="0.32397407" />
+      <window_info active="true" anchor="bottom" x="85" y="408" width="1817" height="299" id="Logcat" order="10" visible="true" weight="0.32289416" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.3281493" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24958494" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Device File Explorer" order="4" side_tool="true" />
       <window_info anchor="right" id="Gradle" order="5" />
@@ -506,13 +505,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="81" column="45" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/algo/ECGClassification.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -541,24 +533,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/content/ContextWrapper.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="207" column="41" selection-start-line="207" selection-start-column="41" selection-end-line="207" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="40" selection-start-line="5" selection-start-column="40" selection-end-line="5" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -569,77 +547,123 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/AppSetting.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/NotificationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="136" column="24" selection-start-line="136" selection-start-column="24" selection-end-line="136" selection-end-column="24" />
+        <state relative-caret-position="513">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amitshekhar.android/android-networking/1.0.1/21134e25889a8db094948facc3e99b78a87f04ca/android-networking-1.0.1-sources.jar!/com/androidnetworking/common/ANRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="724" selection-start-line="724" selection-end-line="724" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Android/Sdk/platforms/android-27/android.jar!/android/content/Context.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="325" column="50" selection-start-line="325" selection-start-column="50" selection-end-line="325" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/PermissionHelperd.java" />
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1159">
+          <caret line="61" column="44" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3154">
+          <caret line="204" column="18" selection-start-line="204" selection-start-column="18" selection-end-line="204" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/NotificationHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1292">
+          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/ECGCSVHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="42" selection-start-column="42" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
+        <state relative-caret-position="513">
           <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/NotificationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-912">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="68" selection-start-line="18" selection-start-column="68" selection-end-line="18" selection-end-column="68" />
+        <state relative-caret-position="76">
+          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="19" selection-end-column="66" />
         </state>
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/utils/NotificationHelper.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/AppSetting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="709">
-          <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        <state relative-caret-position="249">
+          <caret line="117" column="53" selection-start-line="117" selection-start-column="53" selection-end-line="117" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/DetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="143" column="30" selection-start-line="143" selection-start-column="30" selection-end-line="147" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
+            <element signature="e#22575#23036#0" expanded="true" />
+            <element signature="e#23035#23036#0" expanded="true" />
+            <element signature="e#26039#26040#0" expanded="true" />
+            <element signature="e#28640#28641#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreRestarter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        <state relative-caret-position="456">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/DetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="559" column="31" selection-start-line="559" selection-start-column="31" selection-end-line="559" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3758#3790#0" expanded="true" />
-            <element signature="e#16545#16574#0" expanded="true" />
-            <element signature="e#26558#27023#0" expanded="true" />
-            <element signature="e#27022#27023#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/faishalrachman/amonsecg/services/CoreService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="155" column="5" lean-forward="true" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
+        <state relative-caret-position="228">
+          <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#saveECGSignal#0;class#CoreService#0" />
+            <element signature="e#9164#9165#0" expanded="true" />
           </folding>
         </state>
       </provider>

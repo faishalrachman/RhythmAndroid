@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.justadeveloper96.android:permissionhelper:1.1.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3d3e0a522f05da610d4b03fc849b6db8/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3d3e0a522f05da610d4b03fc849b6db8/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.justadeveloper96.android/permissionhelper/1.1.1/75bf95d92966ab0afbf87b53a1da05f6b037a3ae/permissionhelper-1.1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -152,6 +152,7 @@
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.5@jar" level="project" />
     <orderEntry type="library" name="Gradle: io.moquette:moquette-parser-commons:0.8.1@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:27.1.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.karumi:dexter:5.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: log4j:log4j:1.2.17@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.jakewharton:butterknife:8.8.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7:27.1.1@aar" level="project" />
@@ -187,5 +188,6 @@
     <orderEntry type="library" name="Gradle: io.netty:netty-codec:4.0.33.Final@jar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.core:common:1.1.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.4@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.judemanutd:autostarter:1.0.3@aar" level="project" />
   </component>
 </module>
