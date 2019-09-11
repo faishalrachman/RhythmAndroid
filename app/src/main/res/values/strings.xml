@@ -3,12 +3,15 @@
     <string name="welcome_name">Welcome to RHYTHM</string>
 
     <!--APP CONFIG-->
-    <string name="http_url">http://%s/mobileapi</string>
+    <string name="http_url">http://%s/</string>
+    <!--<string name="http_url">http://%s/mobileapi</string>-->
     <string name="mqtt_url">tcp://%s:1883</string>
-    <string name="server_ip_address">192.168.0.7</string>
+    <string name="server_ip_address">telemedicine.co.id:3000</string>
     <string name="server_http_port">3000</string>
-    <!--<string name="server_ip_address">192.168.137.1</string>-->
-    <string name="login_url">/login.php</string>
+    <string name="mqtt_address">telemedicine.co.id</string>
+    <string name="login_url">patient/login</string>
+    <string name="ping_url">patient/ping</string>
+    <!--<string name="login_url">/login.php</string>-->
     <string name="register_url">/register.php</string>
     <string name="doctor_data">/getalldata.php?data_dokter</string>
 
@@ -76,7 +79,9 @@
     <string name="action_sms">action sms</string>
     <string name="friend_delete_success">Friend Deleted</string>
     <string name="no_phone_num">No phone number available</string>
-    <string name="sample_email">arahsafari@telemedicine.co.id</string>
-    <string name="sample_password">arahsafari</string>
+    <!--<string name="sample_email">arahsafari@telemedicine.co.id</string>-->
+    <!--<string name="sample_password">arahsafari</string>-->
+    <string name="sample_email"></string>
+    <string name="sample_password"></string>
 
 </resources>

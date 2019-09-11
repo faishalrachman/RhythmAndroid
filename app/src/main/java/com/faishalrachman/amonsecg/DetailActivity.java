@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,7 +31,9 @@ import com.androidnetworking.common.Priority;
 import com.androidnetworking.core.Core;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.faishalrachman.amonsecg.algo.ECGClassification;
 import com.faishalrachman.amonsecg.services.CoreService;
+import com.faishalrachman.amonsecg.utils.NotificationHelper;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -46,12 +49,12 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
-import org.eclipse.paho.client.mqttv3.IMqttActionListener;
-import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
-import org.eclipse.paho.client.mqttv3.IMqttToken;
-import org.eclipse.paho.client.mqttv3.MqttCallback;
-import org.eclipse.paho.client.mqttv3.MqttException;
-import org.eclipse.paho.client.mqttv3.MqttMessage;
+//import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+//import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+//import org.eclipse.paho.client.mqttv3.IMqttToken;
+//import org.eclipse.paho.client.mqttv3.MqttCallback;
+//import org.eclipse.paho.client.mqttv3.MqttException;
+//import org.eclipse.paho.client.mqttv3.MqttMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -107,6 +110,8 @@ public class DetailActivity extends AppCompatActivity {
     TextView alertDetail;
     @BindView(R.id.button_remove)
     View button_remove;
+    @BindView(R.id.btn_toggle)
+    Button btn_toggle;
 
     CoreService coreService;
     Intent mServiceIntent;
@@ -125,6 +130,38 @@ public class DetailActivity extends AppCompatActivity {
             AppSetting.makeACall(DetailActivity.this, phoneEmergencyNumber);
         else Toast.makeText(this, getString(R.string.no_phone_num), Toast.LENGTH_SHORT).show();
     }
+    @OnClick(R.id.btn_toggle)
+    void onClickCall(){
+        if (coreService != null) {
+            if (!AppSetting.getRecordingStatus(getApplicationContext())){
+
+                Long tsLong = System.currentTimeMillis() / 1000;
+                String name = AppSetting.getBluetoothDeviceName(getApplicationContext());
+                String filename = tsLong.toString() + "-"+ name;
+//                Log.d(TAG, "startRecording: filename="+filename);
+                AppSetting.setRecordingStatus(getApplicationContext(),true);
+                AppSetting.setRecordFilename(getApplicationContext(),filename);
+                btn_toggle.setText("Stop");
+                AppSetting.setRecordingStatus(getApplicationContext(),true);
+                Log.d(TAG, "onClickCall: "+filename);
+            } else {
+//                coreService.stopRecording();
+                btn_toggle.setText("Start");
+                AppSetting.setRecordingStatus(getApplicationContext(),false);
+            }
+//            if (CoreService.is_recording) {
+//                coreService.startRecording();
+//                btn_toggle.setText("Start");
+//            } else {
+//                CoreService.is_recording = true;
+//                coreService.stopRecording();
+//                btn_toggle.setText("Stop");
+//            }
+        } else {
+            Toast.makeText(this, "Service is not initialized", Toast.LENGTH_SHORT).show();
+        }
+    }
+
 //    @OnClick(R.id.button_remove) void onRemoveClick(){
 //        AppSetting.showProgressDialog(DetailActivity.this, "Removing friend");
 //        AndroidNetworking.post(AppSetting.getHttpAddress(DetailActivity.this)
@@ -175,80 +212,80 @@ public class DetailActivity extends AppCompatActivity {
     MyTimerTask ttask = new MyTimerTask();
     Timer t = new Timer();
 
-    void setupMqttCallBack() {
-        mqttClient.setCallback(new MqttCallback() {
-            @Override
-            public void connectionLost(Throwable cause) {
-                Toast.makeText(getApplicationContext(), "Connection Lost", Toast.LENGTH_SHORT).show();
-                System.out.println("Connection was lost!");
-//                t.cancel();
-            }
-
-            @Override
-            public void messageArrived(String topic, MqttMessage message) throws Exception {
-//                System.out.println("Message Arrived!: " + topic + ": " + new String(message.getPayload()));
-
-
-                String[] splitedTopic = topic.split("/");
-                System.out.println(splitedTopic);
-                switch (splitedTopic[2]) {//awalnya 2
-                    case "bpm":
-                        itemRate.setText(String.format(Locale.US, "%.0f", Float.parseFloat(new String(message.getPayload()))));
-                        break;
-//                    case "ecg"://awalnya visual
-//                        fps_counter += 1;
-//                        String[] data = new String(message.getPayload()).split(":");
-//                        for (int i = 1; i < data.length; i++) {
-//                            ecgAllData.add(Float.parseFloat(data[i]));
-//                        }
-//                        isNerima = true;
-//                        lineChart.invalidate();
+//    void setupMqttCallBack() {
+//        mqttClient.setCallback(new MqttCallback() {
+//            @Override
+//            public void connectionLost(Throwable cause) {
+//                Toast.makeText(getApplicationContext(), "Connection Lost", Toast.LENGTH_SHORT).show();
+//                System.out.println("Connection was lost!");
+////                t.cancel();
+//            }
+//
+//            @Override
+//            public void messageArrived(String topic, MqttMessage message) throws Exception {
+////                System.out.println("Message Arrived!: " + topic + ": " + new String(message.getPayload()));
+//
+//
+//                String[] splitedTopic = topic.split("/");
+//                System.out.println(splitedTopic);
+//                switch (splitedTopic[2]) {//awalnya 2
+//                    case "bpm":
+//                        itemRate.setText(String.format(Locale.US, "%.0f", Float.parseFloat(new String(message.getPayload()))));
 //                        break;
-                    case "n":
-                        String alertString = new String(message.getPayload());
-                        switch (alertString.toLowerCase()) {
-                            case "normal":
-                                alertTitle.setTextColor(getResources().getColor(R.color.colorGreen));
-                                alertTitle.setText("Condition: Normal");
-                                alertImage.setImageResource(R.drawable.ic_error_green);
-                                break;
-                            case "pvc":
-                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
-                                alertTitle.setText("Condition: Premature Ventricular Contraction Detected");
-                                alertImage.setImageResource(R.drawable.ic_error_red);
-                                soundOnDrop();
-                                break;
-                            case "vf":
-                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
-                                alertTitle.setText("Condition: Ventricular Fibrillation");
-                                alertImage.setImageResource(R.drawable.ic_error_red);
-                                soundOnDrop();
-                                break;
-                            case "heartblock":
-                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
-                                alertTitle.setText("Condition: Heartblock Detected");
-                                alertImage.setImageResource(R.drawable.ic_error_red);
-                                soundOnDrop();
-                                break;
-                            case "af":
-                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
-                                alertTitle.setText("Condition: Atrial Fibrilation Detected");
-                                alertImage.setImageResource(R.drawable.ic_error_red);
-                                soundOnDrop();
-                                break;
-
-                        }
-                        break;
-                }
-
-            }
-
-            @Override
-            public void deliveryComplete(IMqttDeliveryToken token) {
-                Log.i("MQTT", "Delivery Complete!");
-            }
-        });
-    }
+////                    case "ecg"://awalnya visual
+////                        fps_counter += 1;
+////                        String[] data = new String(message.getPayload()).split(":");
+////                        for (int i = 1; i < data.length; i++) {
+////                            ecgAllData.add(Float.parseFloat(data[i]));
+////                        }
+////                        isNerima = true;
+////                        lineChart.invalidate();
+////                        break;
+//                    case "n":
+//                        String alertString = new String(message.getPayload());
+//                        switch (alertString.toLowerCase()) {
+//                            case "normal":
+//                                alertTitle.setTextColor(getResources().getColor(R.color.colorGreen));
+//                                alertTitle.setText("Condition: Normal");
+//                                alertImage.setImageResource(R.drawable.ic_error_green);
+//                                break;
+//                            case "pvc":
+//                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
+//                                alertTitle.setText("Condition: Premature Ventricular Contraction Detected");
+//                                alertImage.setImageResource(R.drawable.ic_error_red);
+//                                soundOnDrop();
+//                                break;
+//                            case "vf":
+//                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
+//                                alertTitle.setText("Condition: Ventricular Fibrillation");
+//                                alertImage.setImageResource(R.drawable.ic_error_red);
+//                                soundOnDrop();
+//                                break;
+//                            case "heartblock":
+//                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
+//                                alertTitle.setText("Condition: Heartblock Detected");
+//                                alertImage.setImageResource(R.drawable.ic_error_red);
+//                                soundOnDrop();
+//                                break;
+//                            case "af":
+//                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
+//                                alertTitle.setText("Condition: Atrial Fibrilation Detected");
+//                                alertImage.setImageResource(R.drawable.ic_error_red);
+//                                soundOnDrop();
+//                                break;
+//
+//                        }
+//                        break;
+//                }
+//
+//            }
+//
+//            @Override
+//            public void deliveryComplete(IMqttDeliveryToken token) {
+//                Log.i("MQTT", "Delivery Complete!");
+//            }
+//        });
+//    }
 
     void setupDetail() {
         AppSetting.AccountInfo info = AppSetting.getSavedAccount(DetailActivity.this);
@@ -258,45 +295,46 @@ public class DetailActivity extends AppCompatActivity {
 
 
         AndroidNetworking.get(AppSetting.getHttpAddress(DetailActivity.this)
-                + getString(R.string.login_url))
-                .addQueryParameter("email", info.username)
-                .addQueryParameter("password", info.password)
+                + getString(R.string.ping_url))
+                .addHeaders("Authorization", AppSetting.getSession(DetailActivity.this))
                 .setPriority(Priority.MEDIUM).build()
                 .getAsJSONObject(new JSONObjectRequestListener() {
                     @Override
                     public void onResponse(JSONObject response) {
                         AppSetting.dismissProgressDialog();
                         try {
-                            ItemDevice device = ItemDevice.jsonToDevice(response
-                                    .getJSONArray("data_pasien").getJSONObject(0));
+//                            ItemDevice device = ItemDevice.jsonToDevice(response
+//                                    .getJSONArray("data_pasien").getJSONObject(0));
+                            JSONObject data = response.getJSONObject("data");
 
                             System.out.println(response.toString());
 
-                            friendFullName.setText(device.getName());
-                            fullname = device.full_name;
-                            friendAddress.setText(device.address);
-                            friendPhone.setText(device.phone);
+                            friendFullName.setText(data.getString("name"));
+                            fullname = data.getString("name");
+                            friendAddress.setText(data.getString("address"));
+                            friendPhone.setText(data.getString("phone_number"));
 //                            phoneNumber = device.phone; /*setup phone*/
-                            friendPhone.setText(device.emergencyPhone);
-                            phoneEmergencyNumber = device.emergencyPhone; /*setup phone*/
-                            friendGender.setText(device.isMale() ? "Male" : "Female");
-                            friendAge.setText(device.age);
+                            friendPhone.setText(data.getString("phone_number"));
+                            phoneEmergencyNumber = data.getString("phone_number"); /*setup phone*/
+                            friendGender.setText(data.getBoolean("gender") ? "Male" : "Female");
+//                            friendAge.setText(device.age);
 
-                            itemName.setText(device.getName());
+                            itemName.setText(data.getString("name"));
                             itemId.setText(String.format(Locale.US, "%s: %s", getString(R.string.device_id),
-                                    device.deviceId));
+                                    data.getString("device_id")));
 //                            itemId.setText(String.format(Locale.US, "%s: %s", getString(R.string.device_id),
 //                                    "ECG001"));
-
+                            String device_id = data.getString("device_id");
+                            Log.d(TAG, "onResponse: " + data.toString());
 //                            setupChart();
                             boolean se = isMyServiceRunning(CoreService.class);
                             if (!se) {
-                                Log.d(TAG, "onResponse: Serpis "+se);
-                                startCoreService(device.deviceId);
+                                Log.d(TAG, "onResponse: Serpis " + se);
+                                startCoreService(device_id);
                             }
 //                            connectBluetooth(device.deviceId);
 //                            setupMqtt(device.deviceId);
-                            setupCondition(device.isMale());
+                            setupCondition(data.getBoolean("gender"));
 
                         } catch (JSONException ex) {
                             ex.printStackTrace();
@@ -307,9 +345,11 @@ public class DetailActivity extends AppCompatActivity {
                     public void onError(ANError anError) {
                         AppSetting.dismissProgressDialog();
                         Log.i("Detail", "onError: " + anError.getErrorBody());
-                        setupChart();
+//                        setupChart();
 //                        connectBluetooth("ECG001");
                         Toast.makeText(DetailActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
+                        AppSetting.setLogin(DetailActivity.this, AppSetting.LOGGED_OUT);
+                        finish();
                     }
                 });
 
@@ -401,6 +441,7 @@ public class DetailActivity extends AppCompatActivity {
         Log.d(TAG, "setupMqtt: DEVICE=" + deviceId);
 
         this.topicPrefix = AppSetting.getTopic(DetailActivity.this);
+
         String bpm = topicPrefix + "/bpm";
         String notification = topicPrefix + "/n";
         String ecg = topicPrefix + "/ecg";
@@ -410,31 +451,31 @@ public class DetailActivity extends AppCompatActivity {
 //        subscribedTopic.add(ecg);
         if (mqttClient == null) {
             mqttClient = AppSetting.getMqttClient(DetailActivity.this);
-            try {
-                Log.i("MQTT", "SETUP");
-                System.out.println("Setup Mqtt");
-                System.out.println();
-                Toast.makeText(getApplicationContext(), "Setup MQTT", Toast.LENGTH_SHORT).show();
-                mqttClient.connect(DetailActivity.this, new IMqttActionListener() {
-                    @Override
-                    public void onSuccess(IMqttToken asyncActionToken) {
-
-                        Log.i("MQTT", "Connected");
-                        Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_SHORT).show();
-
-                        resumeMqtt();
-                    }
-
-                    @Override
-                    public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-                        System.out.println("gagalkonek");
-//                        System.out.println(asyncActionToken.getResponse().toString());
-                    }
-                });
-            } catch (MqttException ex) {
-                Log.e("MqttSetup", "can't connect");
-                ex.printStackTrace();
-            }
+//            try {
+//                Log.i("MQTT", "SETUP");
+//                System.out.println("Setup Mqtt");
+//                System.out.println();
+//                Toast.makeText(getApplicationContext(), "Setup MQTT", Toast.LENGTH_SHORT).show();
+//                mqttClient.connect(DetailActivity.this, new IMqttActionListener() {
+//                    @Override
+//                    public void onSuccess(IMqttToken asyncActionToken) {
+//
+//                        Log.i("MQTT", "Connected");
+//                        Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_SHORT).show();
+//
+//                        resumeMqtt();
+//                    }
+//
+//                    @Override
+//                    public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+//                        System.out.println("gagalkonek");
+////                        System.out.println(asyncActionToken.getResponse().toString());
+//                    }
+//                });
+//            } catch (MqttException ex) {
+//                Log.e("MqttSetup", "can't connect");
+//                ex.printStackTrace();
+//            }
         }
 
         Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
@@ -459,21 +500,21 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void resumeMqtt() {
-        setupMqttCallBack();
+//        setupMqttCallBack();
         System.out.println("detail resume subs " + subscribedTopic.size());
         for (String topic : subscribedTopic) {
             System.out.println("detail resume subs " + topic);
-            try {
-                if (mqttClient != null) {
-                    mqttClient.subscribe(topic, 0);
-                    Log.i("MQTT", "SUBSCRIBE");
-                } else
-                    Log.i("MQTT", "SUBSCRIBE NULL");
-                //  System.out.println("MQTT is NULL");
-//                Toast.makeText(getApplicationContext(),"MQTT NULL",Toast.LENGTH_SHORT).show();
-            } catch (MqttException ex) {
-                ex.printStackTrace();
-            }
+//            try {
+//                if (mqttClient != null) {
+//                    mqttClient.subscribe(topic, 0);
+//                    Log.i("MQTT", "SUBSCRIBE");
+//                } else
+//                    Log.i("MQTT", "SUBSCRIBE NULL");
+//                //  System.out.println("MQTT is NULL");
+////                Toast.makeText(getApplicationContext(),"MQTT NULL",Toast.LENGTH_SHORT).show();
+//            } catch (MqttException ex) {
+//                ex.printStackTrace();
+//            }
         }
     }
 
@@ -510,8 +551,10 @@ public class DetailActivity extends AppCompatActivity {
 //            mqttClient.close();
 //        }
         Log.d(TAG, "onDestroy: Stop SErvice");
-        stopService(mServiceIntent);
-        unregisterReceiver(updateUIReceiver);
+        if (mServiceIntent != null)
+            stopService(mServiceIntent);
+        if (updateUIReceiver != null)
+            unregisterReceiver(updateUIReceiver);
         super.onDestroy();
     }
 
@@ -519,6 +562,7 @@ public class DetailActivity extends AppCompatActivity {
 
     public class MyTimerTask extends TimerTask {
         public boolean is_running = false;
+
         @Override
         public void run() {
             is_running = true;
@@ -534,7 +578,7 @@ public class DetailActivity extends AppCompatActivity {
 //                        lineChart.setData(linedata);
                         if (Z > 200) {
 //                            dataset.removeFirst();
-//                            lineChart.setVisibleXRangeMaximum(200);
+                            lineChart.setVisibleXRangeMaximum(1000);
                             lineChart.moveViewToX(Z - 200);
 //                            lineChart.centerViewTo(Z-200,0, YAxis.AxisDependency.RIGHT);
 //                            dataset.removeEntry(0);
@@ -564,26 +608,83 @@ public class DetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         IntentFilter filter = new IntentFilter();
         filter.addAction("service.to.activity.transfer");
+        filter.addAction("publish.classification");
+
         updateUIReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                if (intent != null){
-                    String ecg = intent.getStringExtra("signal");
-                    String[] data = ecg.split(":");
-                    for (int i = 1; i < data.length; i++) {
-                        ecgAllData.add(Float.parseFloat(data[i]));
+                Log.d(TAG, "onReceive: "+intent.getAction());
+                if (intent != null) {
+                    if (intent.getAction().contains("service.to.activity.transfer")) {
+                        String ecg = intent.getStringExtra("signal");
+                        String[] data = ecg.split(":");
+                        ArrayList<Float> local = new ArrayList<>();
+                        for (int i = 1; i < data.length; i++) {
+//                            ecgAllData.add(Float.parseFloat(data[i]));
+                            local.add(Float.parseFloat(data[i]));
+                        }
+//                        local = ECGClassification.five_point_derivative(local);
+//                        local = ECGClassification.low_pass_filter(local);
+//                        Log.d(TAG, "onReceive: local="+local.toString());
+//                        local = ECGClassification.adaptive_filter(local);
+//                        Log.d(TAG, "onReceive: local="+local.toString());
+//                        local = ECGClassification.rescale_signal(local);
+                        ecgAllData.addAll(local);
+
+                    } else if (intent.getAction().contains("publish.classification")){
+                        Log.d(TAG, "onReceive: AYANAONIEU");
+                        String notif = intent.getStringExtra("notification");
+                        int bpm = intent.getIntExtra("hr",65);
+                        Log.d(TAG, "onReceive: "+bpm);
+                        itemRate.setText(String.valueOf(bpm));
+                        NotificationHelper notificationHelper = new NotificationHelper(getApplicationContext());
+                        switch (notif.toLowerCase()) {
+                            case "normal":
+                                alertTitle.setTextColor(getResources().getColor(R.color.colorGreen));
+                                alertTitle.setText("Condition: Normal");
+                                alertImage.setImageResource(R.drawable.ic_error_green);
+                                break;
+                            case "pvc":
+                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
+                                alertTitle.setText("Condition: Premature Ventricular Contraction Detected");
+                                alertImage.setImageResource(R.drawable.ic_error_red);
+                                soundOnDrop();
+                                notificationHelper.createNotification("Rhythm","Premature Ventricular Contraction Detected");
+                                break;
+                            case "vf":
+                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
+                                alertTitle.setText("Condition: Ventricular Fibrillation");
+                                alertImage.setImageResource(R.drawable.ic_error_red);
+                                soundOnDrop();
+                                notificationHelper.createNotification("Rhythm","Ventricular Fibrillation Detected");
+                                break;
+                            case "heartblock":
+                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
+                                alertTitle.setText("Condition: Heartblock Detected");
+                                alertImage.setImageResource(R.drawable.ic_error_red);
+                                soundOnDrop();
+                                notificationHelper.createNotification("Rhythm","Heartblock Detected");
+                                break;
+                            case "af":
+                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
+                                alertTitle.setText("Condition: Atrial Fibrilation Detected");
+                                alertImage.setImageResource(R.drawable.ic_error_red);
+                                soundOnDrop();
+                                notificationHelper.createNotification("Rhythm","Atrial Fibrilation Detected");
+                                break;
+                        }
                     }
                 }
             }
         };
-        registerReceiver(updateUIReceiver,filter);
+        registerReceiver(updateUIReceiver, filter);
 
         Dexter.withActivity(this)
                 .withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE).withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport report) {
-                Log.d(TAG, "onPermissionsChecked: "+report.toString());
+                Log.d(TAG, "onPermissionsChecked: " + report.toString());
             }
 
             @Override
@@ -597,13 +698,20 @@ public class DetailActivity extends AppCompatActivity {
 
         /*DETAIL INFORMATION*/
         setupDetail();
+        boolean status = AppSetting.getRecordingStatus(getApplicationContext());
+        if (status){
+            btn_toggle.setText("Stop");
+        } else {
+            btn_toggle.setText("Start");
+        }
+
     }
 
     void startCoreService(String deviceId) {
-        AppSetting.setBluetoothDeviceName(getApplicationContext(),deviceId);
+        AppSetting.setBluetoothDeviceName(getApplicationContext(), deviceId);
         Toast.makeText(this, deviceId, Toast.LENGTH_SHORT).show();
         Log.d(TAG, "startCoreService: HEHEHEHEHEHE");
-        Log.d(TAG, "startCoreService: "+deviceId);
+        Log.d(TAG, "startCoreService: " + deviceId);
         coreService = new CoreService(getApplicationContext());
         mServiceIntent = new Intent(getApplicationContext(), coreService.getClass());
         if (!isMyServiceRunning(coreService.getClass())) {
@@ -626,7 +734,7 @@ public class DetailActivity extends AppCompatActivity {
 //                break;
             case R.id.action_mode:
                 startActivity(new Intent(DetailActivity.this, DetailActivityOffline.class));
-                finish();
+//                finish();
                 break;
             case R.id.action_about:
                 startActivity(new Intent(DetailActivity.this, AboutActivity.class));
@@ -637,9 +745,15 @@ public class DetailActivity extends AppCompatActivity {
                 unregisterReceiver(updateUIReceiver);
                 Toast.makeText(this, "Logout berhasil, Silahkan jalankan kembali aplikasi ini", Toast.LENGTH_SHORT).show();
                 AppSetting.setLogin(DetailActivity.this, AppSetting.LOGGED_OUT);
+                try{
+                    CoreService.bluetooth.disconnect();
+
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
 //                System.exit(0);
 //                startActivity(new Intent(DetailActivity.this, LoginActivity.class));
-                finish();
+//                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -672,14 +786,14 @@ public class DetailActivity extends AppCompatActivity {
                 for (int i = 1; i < data.length; i++) {
                     ecgAllData.add(Float.parseFloat(data[i]));
                 }
-                if (mqttClient != null && mqttClient.isConnected()) {
-                    try {
-
-                        mqttClient.publish(topicPrefix + "/ecg", message.getBytes(), 0, true);
-                    } catch (MqttException e) {
-                        e.printStackTrace();
-                    }
-                }
+//                if (mqttClient != null && mqttClient.isConnected()) {
+//                    try {
+//
+//                        mqttClient.publish(topicPrefix + "/ecg", message.getBytes(), 0, true);
+//                    } catch (MqttException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
                 runOnUiThread(
                         new Runnable() {
                             @Override
@@ -710,7 +824,7 @@ public class DetailActivity extends AppCompatActivity {
 
     void connectBluetooth(String name) {
         this.deviceId = name;
-        AppSetting.setBluetoothDeviceName(getApplicationContext(),name);
+        AppSetting.setBluetoothDeviceName(getApplicationContext(), name);
         bluetooth.onStart();
         if (bluetooth.isEnabled()) {
             Log.d(TAG, "connectBluetooth: Connecting to" + name);
@@ -725,15 +839,16 @@ public class DetailActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop(); //bluetooth.onStop();
     }
+
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (serviceClass.getName().equals(service.service.getClassName())) {
-                Log.i ("isMyServiceRunning?", true+"");
+                Log.i("isMyServiceRunning?", true + "");
                 return true;
             }
         }
-        Log.i ("isMyServiceRunning?", false+"");
+        Log.i("isMyServiceRunning?", false + "");
         return false;
     }
 }

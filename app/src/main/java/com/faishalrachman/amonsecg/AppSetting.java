@@ -23,7 +23,7 @@ public class AppSetting {
     static boolean LOGGED_OUT = false;
     private static ProgressDialog dialog;
 
-    static MqttAndroidClient getMqttClient(Context context) {
+    public static MqttAndroidClient getMqttClient(Context context) {
         //            String clientId = MqttClient.generateClientId();
         System.out.println("mqtt address " + AppSetting.getMqttAddress(context));
         AppSetting.AccountInfo accountInfo = AppSetting.getSavedAccount(context);
@@ -34,6 +34,7 @@ public class AppSetting {
                 AppSetting.getMqttAddress(context),
                 /*MQTT CLIENT ID*/
                 accountInfo.username + "/" + "uadshowaidhoqwwhoduqwhd" + ran.nextInt());
+
         System.out.println(accountInfo.username);
         return mqttClient;
     }
@@ -78,23 +79,26 @@ public class AppSetting {
         String topic = pref.getString("bluetoothDeviceName", "ECG001");
         return topic;
     }
+    public static String getSession(Context context) {
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
+        String topic = pref.getString("session", "");
+        return topic;
+    }
 
     public static String getHttpAddress(Context context) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
-        String ip = pref.getString("ip", "192.168.0.158");
-        String port = pref.getString("port", "");
+        String ip = pref.getString("ip", "telemedicine.co.id:3000");
         if (ip.equals(""))
             ip = context.getString(R.string.server_ip_address);
-        if (port.equals(""))
-            port = context.getString(R.string.server_http_port);
-//        return String.format(Locale.US, context.getString(R.string.http_url), ip+":"+port);
-        return String.format(Locale.US, "http://%s/mobileapi", ip);
+        return String.format(Locale.US, context.getString(R.string.http_url), ip);
+//        return String.format(Locale.US, "http://%s/mobileapi", ip);
+//        return String.format(Locale.US, "http://%s/mobileapi", ip);
     }
 
     static String getMqttAddress(Context context) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
-        String ip = pref.getString("mqttserver", "");
-        String port = pref.getString("port", "49560");
+        String ip = pref.getString("mqttserver", "telemedicine.co.id");
+        String port = pref.getString("port", "49877");
         if (ip.equals(""))
             ip = context.getString(R.string.server_ip_address);
         if (port.equals(""))
@@ -155,7 +159,34 @@ public class AppSetting {
         editor.putString("password", password);
         editor.apply();
     }
+    static void saveSession(Context context, String api_key) {
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("session", api_key);
+        editor.apply();
+    }
+    public static void setRecordingStatus(Context context, Boolean api_key) {
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean("is_recording", api_key);
+        editor.apply();
+    }
 
+    public static Boolean getRecordingStatus(Context context) {
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
+        return pref.getBoolean("is_recording", false);
+    }
+    public static void setRecordFilename(Context context, String api_key) {
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("filename", api_key);
+        editor.apply();
+    }
+
+    public static String getRecordFilename(Context context) {
+        SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
+        return pref.getString("filename", "unknown");
+    }
     static AccountInfo getSavedAccount(Context context) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
         return new AccountInfo(pref.getString("username", ""), pref.getString("password", ""));
@@ -171,4 +202,11 @@ public class AppSetting {
             this.password = password;
         }
     }
+    public static String getTimestamp(){
+
+        Long tsLong = System.currentTimeMillis() / 1000;
+        String ts = tsLong.toString();
+        return ts;
+    }
+
 }

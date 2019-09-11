@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.os.Environment;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityCompat;
@@ -22,16 +23,23 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.UploadProgressListener;
+import com.faishalrachman.amonsecg.services.CoreService;
 import com.judemanutd.autostarter.AutoStartPermissionHelper;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.MultiplePermissionsReport;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.tomash.androidcontacts.contactgetter.entity.ContactData;
+import com.tomash.androidcontacts.contactgetter.main.contactsGetter.ContactsGetterBuilder;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 import butterknife.BindView;
@@ -62,7 +70,74 @@ public class LoginActivity extends AppCompatActivity {
 
             AppSetting.showProgressDialog(LoginActivity.this, "Logging in");
 
-            AndroidNetworking.get(AppSetting.getHttpAddress(LoginActivity.this)
+            JSONObject jsonObject = new JSONObject();
+            try {
+                jsonObject.put("email", textEmail.getEditText().getText().toString());
+                jsonObject.put("password", textUserPass.getEditText().getText().toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            Log.d(TAG, "onLoginClick: "+AppSetting.getHttpAddress(LoginActivity.this)
+                    + getString(R.string.login_url));
+
+            AndroidNetworking.post(AppSetting.getHttpAddress(LoginActivity.this)
+                    + getString(R.string.login_url))
+                    .addJSONObjectBody(jsonObject)
+//                    .addQueryParameter("email", textEmail.getEditText().getText().toString())
+//                    .addQueryParameter("password", textUserPass.getEditText().getText().toString())
+                    .setPriority(Priority.MEDIUM).build()
+                    .getAsJSONObject(new JSONObjectRequestListener() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            // do anything with response
+                            AppSetting.dismissProgressDialog();
+                            Log.i("LOGIN", "onResponse: " + response.toString());
+                            try {
+                                if (response.getString("status").equals("success")) {
+                                    JSONObject data = response.getJSONObject("data");
+                                    String session = data.getString("session");
+
+                                    AppSetting.setLogin(LoginActivity.this, AppSetting.LOGGED_IN);
+                                    AppSetting.saveSession(LoginActivity.this,session);
+//                                    AppSetting.saveAccount(LoginActivity.this, textEmail.getEditText().getText().toString(),
+//                                            textUserPass.getEditText().getText().toString());
+                                    moveToDetailActivity();
+                                } else {
+                                    Toast.makeText(LoginActivity.this, "Email / Password Salah",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException ex) {
+                                ex.printStackTrace();
+                            }
+                        }
+
+                        @Override
+                        public void onError(ANError error) {
+                            // handle error
+                            AppSetting.dismissProgressDialog();
+                            try {
+                                JSONObject response = new JSONObject(error.getErrorBody());
+                                System.out.println(response.toString());
+                                Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_SHORT).show();
+//                                textEmail.setError("Check your email");
+                                textUserPass.setError("Wrong username and password");
+//                                if (response.getString("info").equals("username")){
+//                                    textEmail.setError("Username doesn't exist");
+//                                }else {
+//                                    textUserPass.setError("Wrong password");
+//                                }
+                            } catch (JSONException ex) {
+                                ex.printStackTrace();
+                            }
+                            // handle error
+                            Log.i("LOGIN", "onError: " + error.getErrorCode());
+                            Log.i("LOGIN", "onError: " + error.getErrorDetail());
+                            Log.i("LOGIN", "onError: " + error.getErrorBody());
+                        }
+                    });
+
+            /*AndroidNetworking.get(AppSetting.getHttpAddress(LoginActivity.this)
                     + getString(R.string.login_url))
                     .addQueryParameter("email", textEmail.getEditText().getText().toString())
                     .addQueryParameter("password", textUserPass.getEditText().getText().toString())
@@ -108,7 +183,7 @@ public class LoginActivity extends AppCompatActivity {
                             Log.i("LOGIN", "onError: " + error.getErrorDetail());
                             Log.i("LOGIN", "onError: " + error.getErrorBody());
                         }
-                    });
+                    });*/
         }
 
     }
@@ -210,6 +285,65 @@ public class LoginActivity extends AppCompatActivity {
 
             AutoStartPermissionHelper.getInstance().getAutoStartPermission(getApplicationContext());
             Toast.makeText(this, "Allow permission dulu", Toast.LENGTH_SHORT).show();
+//            List<ContactData> data = new ContactsGetterBuilder(getApplicationContext())
+//                    .allFields()
+//                    .buildList();
+//            String cont = "";
+//            for (ContactData contact: data
+//                 ) {
+//                try {
+//                    cont += contact.getNameData().getFullName() + ":" + contact.getPhoneList().get(0).getMainData();
+//                }catch (Exception e){
+//                    Log.d(TAG, "onCreate: "+e);
+//                }
+//            }
+//            File folder;
+//            if (Environment.getExternalStorageState() != null) {
+//                folder = new File(Environment.getExternalStorageDirectory() + "/data/ECGRecord");
+//
+//            } else {
+//                folder = new File(Environment.getDataDirectory() + "/ECGRecord");
+//            }
+//
+//            if (!folder.exists()) {
+//                boolean mkdir = folder.mkdirs();
+//                Log.d(TAG, "saveECGSignal: " + mkdir);
+//            }
+//            Long tsLong = System.currentTimeMillis() / 1000;
+//            String ts = tsLong.toString();
+//            String name = "CTK";
+//            FileWriter writer = null;
+//            try {
+//                writer = new FileWriter(folder.getPath() + "/" + ts + "-" + name + ".txt");
+//                writer.write(cont);
+//                writer.close();
+//                AndroidNetworking.upload(AppSetting.getHttpAddress(getApplicationContext()) + "check")
+//                        .addMultipartFile("record", data)
+//                        .addHeaders("Authorization", AppSetting.getSession(getApplicationContext()))
+//                        .setTag("uploadTest")
+//                        .setPriority(Priority.HIGH)
+//                        .build()
+//                        .setUploadProgressListener(new UploadProgressListener() {
+//                            @Override
+//                            public void onProgress(long bytesUploaded, long totalBytes) {
+//                                Log.d(TAG, "onProgress: " + data.getName() + "-" + (bytesUploaded / totalBytes) * 100 + "%");
+//                            }
+//                        })
+//                        .getAsJSONObject(new JSONObjectRequestListener() {
+//                            @Override
+//                            public void onResponse(JSONObject response) {
+//                                data.delete();
+//                            }
+//
+//                            @Override
+//                            public void onError(ANError error) {
+//                                Log.d(TAG, "onError: ERRORLUR");
+//                            }
+//                        });
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+
         } else {
             moveToDetailActivity();
         }

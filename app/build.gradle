@@ -45,10 +45,11 @@ dependencies {
     implementation 'io.moquette:moquette-parser-commons:0.8.1'
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
-    implementation ('org.eclipse.paho:org.eclipse.paho.android.service:1.0.2'){
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
+    implementation ('org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'){
         exclude module: 'support-v4'
     }
-    implementation 'com.amitshekhar.android:android-networking:1.0.1'
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
 
     implementation 'me.relex:circleindicator:1.2.2@aar'
     implementation 'com.robinhood.spark:spark:1.1.2'
@@ -60,5 +61,7 @@ dependencies {
 
     implementation 'com.github.judemanutd:autostarter:1.0.3'
     implementation 'com.karumi:dexter:5.0.0'
+    implementation 'com.tomash:androidcontacts:1.12.1'
+//    implementation 'com.qindachang:ecg-library:1.0.9@aar'
 
 }

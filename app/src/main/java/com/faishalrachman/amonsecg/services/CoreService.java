@@ -17,30 +17,53 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.JSONObjectRequestListener;
+import com.androidnetworking.interfaces.UploadProgressListener;
 import com.faishalrachman.amonsecg.AppSetting;
 import com.faishalrachman.amonsecg.R;
+import com.faishalrachman.amonsecg.algo.ECGClassification;
 import com.faishalrachman.amonsecg.utils.NotificationHelper;
 
+import org.eclipse.paho.android.service.MqttAndroidClient;
+import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.IMqttToken;
+import org.eclipse.paho.client.mqttv3.MqttCallbackExtended;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.json.JSONObject;
+
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import me.aflak.bluetooth.Bluetooth;
 import me.aflak.bluetooth.interfaces.DeviceCallback;
 
 public class CoreService extends Service {
-    public int ID = 1;
-    public String CHANNEL_ID = "10001";
+    private static int ID = 1;
+    private static String CHANNEL_ID = "10001";
     private Context ctx;
     private static String deviceName;
     public static Bluetooth bluetooth;
-    NotificationHelper notificationHelper;
-    ArrayList<String> messageList = new ArrayList<>();
+//    ArrayList<String> messageList = new ArrayList<>();
     static Notification notif;
     static String ecgData = "";
-
+    static MqttAndroidClient mqttClient;
+    static MqttCallbackExtended callback;
+    static String filename;
+    public static boolean is_recording = false;
     String TAG = "CoreService";
+    private static ArrayList<Float> ecg_signal;
+    private static ECGClassification clf = new ECGClassification();
+
 
 
     public CoreService(Context appContext) {
@@ -77,12 +100,109 @@ public class CoreService extends Service {
                 super.startForeground(ID, notif);
 //            notificationHelper.sendNotification("Rhythm","Service Started");
             }
+            if (mqttClient == null)
+            mqttClient = AppSetting.getMqttClient(ctx);
+            if (callback == null){
+                callback = new MqttCallbackExtended() {
+                    @Override
+                    public void connectComplete(boolean reconnect, String serverURI) {
+                        Log.d(TAG, "connectComplete: ");
+                    }
+
+                    @Override
+                    public void connectionLost(Throwable cause) {
+                        Log.d(TAG, "connectionLost: ");
+                    }
+
+                    @Override
+                    public void messageArrived(String topic, MqttMessage message) throws Exception {
+                        Log.d(TAG, "messageArrived: "+message.getPayload().toString());
+                    }
+
+                    @Override
+                    public void deliveryComplete(IMqttDeliveryToken token) {
+
+                    }
+                };
+                mqttClient.setCallback(callback);
+            }
+            if (!mqttClient.isConnected()){
+//                try {
+////                    MqttConnectOptions options = new MqttConnectOptions();
+////                    options.
+//                    mqttClient.connect(ctx, new IMqttActionListener() {
+//                        @Override
+//                        public void onSuccess(IMqttToken asyncActionToken) {
+//                            Log.d(TAG, "onSuccess: MQTT Success");
+//
+//                            String deviceName = AppSetting.getBluetoothDeviceName(ctx);
+//                            String[] topics = new String[2];
+//                            topics[0] = "rhythm/"+deviceName+"/ecg";
+//                            topics[1] = "rhythm/"+deviceName+"/n";
+//                            int[] qos = {0,0};
+//                            try {
+//                                mqttClient.subscribe(topics,qos);
+//                            } catch (MqttException e) {
+//                                Log.d(TAG, "onSuccess: Failed Subscribe");
+//                                e.printStackTrace();
+//                            }
+//                            Log.d(TAG, "onCreate: Subscribed");
+//                        }
+//
+//                        @Override
+//                        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+//                            Log.d(TAG, "onFailure: MQTT Failed");
+//                            Log.d(TAG, "onFailure: "+exception.getMessage());
+//                        }
+//                    });
+//
+//
+//                } catch (MqttException e) {
+//                    e.printStackTrace();
+//                }
+                MqttConnectOptions options = new MqttConnectOptions();
+                options.setAutomaticReconnect(true);
+                try {
+                    mqttClient.connect(options, ctx, new IMqttActionListener() {
+                        @Override
+                        public void onSuccess(IMqttToken asyncActionToken) {
+                                Log.d(TAG, "onSuccess: MQTT Success ");
+                                Log.d(TAG, "onSuccess: tidak ada subscribe2an");
+                                uploadECGSignal();
+
+//                                String deviceName = AppSetting.getBluetoothDeviceName(ctx);
+//                                String[] topics = new String[2];
+//                                topics[0] = "rhythm/"+deviceName+"/ecg";
+//                                topics[1] = "rhythm/"+deviceName+"/n";
+//                                int[] qos = {0,0};
+//                                try {
+//                                    mqttClient.subscribe(topics,qos);
+//                                } catch (MqttException e) {
+//                                    Log.d(TAG, "onSuccess: Failed Subscribe");
+//                                    e.printStackTrace();
+//                                }
+//                                Log.d(TAG, "onCreate: Subscribed");
+
+                        }
+
+                        @Override
+                        public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+
+                        }
+                    });
+                } catch (MqttException e) {
+                    e.printStackTrace();
+                }
+            }
         } else {
             stopForeground(true);
             System.exit(0);
         }
+        ecg_signal = new ArrayList<>();
 
     }
+
+
     private Notification getNotification(String content) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_notifications_yes)
@@ -101,6 +221,7 @@ public class CoreService extends Service {
         }
         return builder.build();
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -116,11 +237,12 @@ public class CoreService extends Service {
 
             sendBroadcast(broadcastIntent);
 //        }
-        saveECGSignal();
+//        saveECGSignal();
     }
 
     void saveECGSignal() {
 
+        filename = AppSetting.getRecordFilename(getApplicationContext());
         File folder;
         if (Environment.getExternalStorageState() != null) {
             folder = new File(Environment.getExternalStorageDirectory() + "/data/ECGRecord");
@@ -137,19 +259,64 @@ public class CoreService extends Service {
 
         if (ecgData.length() > 2500) {
             Log.d(TAG, "saveECGSignal: " + folder.getPath());
-            Long tsLong = System.currentTimeMillis() / 1000;
-            String ts = tsLong.toString();
-            String name = AppSetting.getBluetoothDeviceName(ctx);
+//            Long tsLong = System.currentTimeMillis() / 1000;
+//            String ts = tsLong.toString();
+//            String name = AppSetting.getBluetoothDeviceName(ctx);
 
             try {
+                Log.d(TAG, "saveECGSignal: "+filename);
 //            File file = new File(context.getFilesDir(), filename);
-                FileWriter writer = new FileWriter(folder.getPath() + "/" + ts + "-" + name + ".txt");
-                writer.write(ecgData);
-                writer.close();
-                this.ecgData = "";
-                Log.d(TAG, "saveECGSignal: SAVE SUCCESS - " + ts + "-" + name + ".txt");
+//                FileWriter writer = new FileWriter(folder.getPath() + "/" + ts + "-" + name + ".txt");
+//                FileOutputStream fOut = openFileOutput(folder.getPath() + "/" + filename + ".txt",  MODE_APPEND);
+                FileOutputStream fOut = new FileOutputStream(new File(folder.getPath() + "/" + filename + ".txt"),true);//openFileOutput(folder.getPath() + "/" + filename + ".txt",  MODE_APPEND);
+                fOut.write(ecgData.getBytes());
+                fOut.close();
+//                writer.write(ecgData);
+//                writer.close();
+                ecgData = "";
+                Log.d(TAG, "saveECGSignal: SAVE SUCCESS - " + filename + ".txt");
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        }
+    }
+    void uploadECGSignal(){
+
+        File folder;
+        if (Environment.getExternalStorageState() != null) {
+            folder = new File(Environment.getExternalStorageDirectory() + "/data/ECGRecord");
+
+        } else {
+            folder = new File(Environment.getDataDirectory() + "/ECGRecord");
+        }
+        File[] datas = folder.listFiles();
+        if (datas != null) {
+            for (final File data : datas) {
+                Log.d(TAG, "uploadECGSignal: " + data.getName());
+
+                AndroidNetworking.upload(AppSetting.getHttpAddress(CoreService.this) + "patient/add_record")
+                        .addMultipartFile("record", data)
+                        .addHeaders("Authorization", AppSetting.getSession(CoreService.this))
+                        .setTag("uploadTest")
+                        .setPriority(Priority.HIGH)
+                        .build()
+                        .setUploadProgressListener(new UploadProgressListener() {
+                            @Override
+                            public void onProgress(long bytesUploaded, long totalBytes) {
+                                Log.d(TAG, "onProgress: " + data.getName() + "-" + (bytesUploaded / totalBytes) * 100 + "%");
+                            }
+                        })
+                        .getAsJSONObject(new JSONObjectRequestListener() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                data.delete();
+                            }
+
+                            @Override
+                            public void onError(ANError error) {
+                                Log.d(TAG, "onError: ERRORLUR");
+                            }
+                        });
             }
         }
     }
@@ -171,8 +338,7 @@ public class CoreService extends Service {
             @Override
             public void onDeviceConnected(BluetoothDevice device) {
                 Log.d(TAG, "onDeviceConnected: " + device.getName());
-                bluetooth.send("Connected");
-
+                bluetooth.send(AppSetting.getTimestamp());
                 notif = getNotification("Bluetooth is connected");
                 startForeground(ID, notif);
 
@@ -188,19 +354,61 @@ public class CoreService extends Service {
 
             @Override
             public void onMessage(String message) {
-                Long tsLong = System.currentTimeMillis() / 1000;
-                String ts = tsLong.toString();
-                messageList.add(ts + ":" + message.replace("��", ""));
+                is_recording = AppSetting.getRecordingStatus(getApplicationContext());
+                Log.d(TAG, "onMessage: isRecording="+is_recording);
+                if (is_recording) {
+                    Long tsLong = System.currentTimeMillis() / 1000;
+                    String ts = tsLong.toString();
+//                    messageList.add(ts + ":" + message.replace("��", ""));
 //                sendNotif();
-                Log.d(TAG, "onMessage: " + ts + ":" + message.replace("��", ""));
-                Intent local = new Intent();
-                local.setAction("service.to.activity.transfer");
-                local.putExtra("signal", message);
-                ctx.sendBroadcast(local);
+                    Log.d(TAG, "onMessage: " + ts + ":" + message.replace("��", ""));
+                    Intent local = new Intent();
+                    local.setAction("service.to.activity.transfer");
+                    local.putExtra("signal", message);
+                    clf.parseSignal(ecg_signal, message.replace("��", ""));
+                    Log.d(TAG, "onMessage: ECG_Array = " + ecg_signal.size());
+                    if (ecg_signal.size() > 2000) {
 
-                ecgData += ts + ":" + message.replace("��", "") + "\n";
-                if (ecgData.length() > 1073741824) {
-                    saveECGSignal();
+                        clf.run(ecg_signal);
+                        int[] count = clf.getClass_count();
+                        String penyakit = "normal";
+                        if (count[2] > 0) {
+                            penyakit = "vf";
+                        } else if (count[1] > 0.5 * count[0]) {
+                            penyakit = "af";
+                        }
+                        int HR = clf.HR;
+                        Intent classification = new Intent();
+                        classification.setAction("publish.classification");
+                        classification.putExtra("notification", penyakit);
+                        classification.putExtra("hr", HR);
+
+                        Log.d(TAG, "onMessage: Penyakit=" + penyakit);
+                        Log.d(TAG, "onMessage: HR=" + HR);
+                        saveECGSignal();
+                        ecg_signal.clear();
+                        ctx.sendBroadcast(classification);
+                    }
+
+
+                    ctx.sendBroadcast(local);
+                    if (mqttClient.isConnected()) {
+                        try {
+                            mqttClient.publish("rhythm/" + AppSetting.getBluetoothDeviceName(ctx) + "/ecg", new MqttMessage(message.replace("��", "").getBytes()));
+                        } catch (MqttException e) {
+                            e.printStackTrace();
+                            Log.d(TAG, "onMessage: " + e.getMessage());
+                        }
+                    }
+
+                    ecgData += ts + ":" + message.replace("��", "") + "\n";
+                    if (ecg_signal.size() > 2000) {
+                        saveECGSignal();
+                    }
+                } else {
+                    if (ecgData.length() > 2500){
+                        saveECGSignal();
+                    }
                 }
 
             }

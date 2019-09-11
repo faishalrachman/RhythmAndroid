@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.amitshekhar.android:android-networking:1.0.2@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/54bb10029c0b21c253a38e903aa0ad36/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/54bb10029c0b21c253a38e903aa0ad36/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.amitshekhar.android/android-networking/1.0.2/45745c4b3c155243f77a7431f200ca60106a27e4/android-networking-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
