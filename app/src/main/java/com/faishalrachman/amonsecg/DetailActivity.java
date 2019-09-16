@@ -7,15 +7,13 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Build;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -28,16 +26,13 @@ import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
-import com.androidnetworking.core.Core;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
-import com.faishalrachman.amonsecg.algo.ECGClassification;
 import com.faishalrachman.amonsecg.services.CoreService;
 import com.faishalrachman.amonsecg.utils.NotificationHelper;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
-import com.faishalrachman.amonsecg.model.ItemDevice;
 import com.github.mikephil.charting.charts.*;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
@@ -148,6 +143,8 @@ public class DetailActivity extends AppCompatActivity {
 //                coreService.stopRecording();
                 btn_toggle.setText("Start");
                 AppSetting.setRecordingStatus(getApplicationContext(),false);
+//                coreService.saveECGSignal();
+//                coreService.uploadECGSignal();
             }
 //            if (CoreService.is_recording) {
 //                coreService.startRecording();

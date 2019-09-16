@@ -13,8 +13,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.IBinder;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NotificationCompat;
+import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import android.util.Log;
 
 import com.androidnetworking.AndroidNetworking;
@@ -25,7 +25,6 @@ import com.androidnetworking.interfaces.UploadProgressListener;
 import com.faishalrachman.amonsecg.AppSetting;
 import com.faishalrachman.amonsecg.R;
 import com.faishalrachman.amonsecg.algo.ECGClassification;
-import com.faishalrachman.amonsecg.utils.NotificationHelper;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -39,10 +38,8 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
 
 import me.aflak.bluetooth.Bluetooth;
 import me.aflak.bluetooth.interfaces.DeviceCallback;
@@ -84,6 +81,9 @@ public class CoreService extends Service {
     public void onCreate() {
         super.onCreate();
         ctx = getApplicationContext();
+        if (!is_recording){
+            uploadECGSignal();
+        }
         if (AppSetting.isLoggedIn(ctx)) {
             Log.d(TAG, "onCreate: " + AppSetting.isLoggedIn(ctx));
             Log.d(TAG, "onCreate: Bluetooth Setup");
@@ -240,7 +240,7 @@ public class CoreService extends Service {
 //        saveECGSignal();
     }
 
-    void saveECGSignal() {
+    public void saveECGSignal() {
 
         filename = AppSetting.getRecordFilename(getApplicationContext());
         File folder;
@@ -279,8 +279,10 @@ public class CoreService extends Service {
                 e.printStackTrace();
             }
         }
+        if (!is_recording)
+            uploadECGSignal();
     }
-    void uploadECGSignal(){
+    public void uploadECGSignal(){
 
         File folder;
         if (Environment.getExternalStorageState() != null) {
@@ -338,7 +340,8 @@ public class CoreService extends Service {
             @Override
             public void onDeviceConnected(BluetoothDevice device) {
                 Log.d(TAG, "onDeviceConnected: " + device.getName());
-                bluetooth.send(AppSetting.getTimestamp());
+                bluetooth.send("Connected");
+
                 notif = getNotification("Bluetooth is connected");
                 startForeground(ID, notif);
 

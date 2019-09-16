@@ -23,7 +23,7 @@
         android:background="@drawable/circle_grey_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-    <android.support.v4.view.ViewPager
+    <androidx.viewpager.widget.ViewPager
         android:background="@color/colorPrimary"
         android:id="@+id/view_pager"
         android:layout_above="@id/pager_indicator"

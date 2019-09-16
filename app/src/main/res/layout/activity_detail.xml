@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
             android:transitionName="@string/card_transition"
@@ -58,7 +58,7 @@
                         android:id="@+id/item_rate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="65"
+                        android:text="-"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                     <TextView
@@ -67,8 +67,8 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
@@ -179,12 +179,12 @@
                         android:layout_height="wrap_content" />
                 </TableRow>
             </TableLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="10dp"
                 app:cardCornerRadius="8dp"
@@ -224,9 +224,9 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-            <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_marginTop="@dimen/activity_horizontal_margin"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="4dp"
@@ -242,11 +242,11 @@
                     android:textColor="@color/colorAccent"
                     android:textAllCaps="false"
                     android:background="@android:color/transparent"/>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-        <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
@@ -278,7 +278,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
         <!--<android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"-->
             <!--android:layout_marginTop="@dimen/activity_horizontal_margin"-->
             <!--app:cardCornerRadius="8dp"-->
@@ -297,7 +297,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             />
-        <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:visibility="gone"
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             app:cardCornerRadius="8dp"
@@ -311,7 +311,7 @@
                 android:text="@string/remove_friend"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-        </android.support.v7.widget.CardView>
+        </androidx.cardview.widget.CardView>
         <View
             android:layout_marginTop="@dimen/activity_horizontal_margin"
             android:layout_width="match_parent"

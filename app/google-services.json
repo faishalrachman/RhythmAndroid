@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "618391898190",
+    "firebase_url": "https://telemedicine-s.firebaseio.com",
+    "project_id": "telemedicine-s",
+    "storage_bucket": "telemedicine-s.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618391898190:android:cc609e4f70e58b8a619b1f",
+        "android_client_info": {
+          "package_name": "com.ipat.RhythmBT"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618391898190-i5r1mggs8fjhu3uu2vvvj6e4ip7tu4fl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ipat.RhythmBT",
+            "certificate_hash": "c91f7bf99b934dafc2580593dbf2f93de3293455"
+          }
+        },
+        {
+          "client_id": "618391898190-ig22510a5da6c6s5j5ekeh8nfugchb5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDffoqV44m9PRWYOJ67n7XkKQFg9cXHXII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618391898190-ig22510a5da6c6s5j5ekeh8nfugchb5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,5 @@
 package com.faishalrachman.amonsecg.utils;
 
-import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -8,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.provider.Settings;
-import android.support.v4.app.NotificationCompat;
+import androidx.core.app.NotificationCompat;
 
 import com.faishalrachman.amonsecg.DetailActivity;
 import com.faishalrachman.amonsecg.R;

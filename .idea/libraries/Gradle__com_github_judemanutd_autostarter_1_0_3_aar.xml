@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.judemanutd:autostarter:1.0.3@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef5bfaf6df95038cc8caea3e0755dee7/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ef5bfaf6df95038cc8caea3e0755dee7/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2bcb8ceabc2189f59b8e9dfe35a51d07/autostarter-1.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2bcb8ceabc2189f59b8e9dfe35a51d07/autostarter-1.0.3/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.judemanutd/autostarter/1.0.3/7a7ed66781f1cfdf0d4fab2c19b7c04670c32bcd/autostarter-1.0.3-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.judemanutd/autostarter/1.0.3/5f863751f627def5df8a4db5bade2d18964615a4/autostarter-1.0.3-sources.jar!/" />
     </SOURCES>

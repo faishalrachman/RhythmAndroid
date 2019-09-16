@@ -5,11 +5,18 @@ buildscript {
         jcenter()
         mavenCentral()
         google()
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.2'
-        classpath 'com.jakewharton:butterknife-gradle-plugin:9.0.0-rc2'
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.0.0'
+        classpath 'com.google.gms:google-services:4.3.2'
 //
+        // Add dependency
+        classpath 'io.fabric.tools:gradle:1.31.0'  // Crashlytics plugin
+
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

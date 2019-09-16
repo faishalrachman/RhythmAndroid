@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.tomash:androidcontacts:1.12.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1f75c30fc352df9fcad250785ebf225/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1f75c30fc352df9fcad250785ebf225/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a2b8599afabddb862b41723792ea9c9a/androidcontacts-1.12.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a2b8599afabddb862b41723792ea9c9a/androidcontacts-1.12.1/res" />
     </CLASSES>
-    <JAVADOC />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tomash/androidcontacts/1.12.1/5bb69562aa2876c45cd36715b01878ee68fd63c9/androidcontacts-1.12.1-javadoc.jar!/" />
+    </JAVADOC>
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.tomash/androidcontacts/1.12.1/3e78edc13ed334583affd0eae65136ad7e0b27fd/androidcontacts-1.12.1-sources.jar!/" />
     </SOURCES>
