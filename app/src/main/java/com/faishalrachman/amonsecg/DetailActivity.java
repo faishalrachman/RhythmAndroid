@@ -342,11 +342,16 @@ public class DetailActivity extends AppCompatActivity {
                     public void onError(ANError anError) {
                         AppSetting.dismissProgressDialog();
                         Log.i("Detail", "onError: " + anError.getErrorBody());
+                        if (anError.getErrorCode() == 401){
+                            Toast.makeText(DetailActivity.this, "Session anda telah habis, silahkan login kembali", Toast.LENGTH_SHORT).show();
+                            AppSetting.setLogin(DetailActivity.this, AppSetting.LOGGED_OUT);
+                            finish();
+                        } else {
+                            Toast.makeText(DetailActivity.this, "Internet anda mati, mohon sambungkan ke internet untuk menggunakan seluruh layanan", Toast.LENGTH_SHORT).show();
 //                        setupChart();
 //                        connectBluetooth("ECG001");
-                        Toast.makeText(DetailActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
-                        AppSetting.setLogin(DetailActivity.this, AppSetting.LOGGED_OUT);
-                        finish();
+
+                        }
                     }
                 });
 
@@ -523,6 +528,14 @@ public class DetailActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+        boolean status = AppSetting.getRecordingStatus(getApplicationContext());
+        if (status){
+            btn_toggle.setText("Stop");
+        } else {
+            btn_toggle.setText("Start");
+        }
+
         Log.d(TAG, "onStart: Start");
         if (!ttask.is_running)
             setupChart();
@@ -670,6 +683,9 @@ public class DetailActivity extends AppCompatActivity {
                                 notificationHelper.createNotification("Rhythm","Atrial Fibrilation Detected");
                                 break;
                         }
+                    } else if (intent.getAction().contains("make.toast")){
+                        Log.d(TAG, "onReceive: "+intent.getAction());
+                        Toast.makeText(context, intent.getStringExtra("message"), Toast.LENGTH_LONG).show();
                     }
                 }
             }
@@ -695,12 +711,6 @@ public class DetailActivity extends AppCompatActivity {
 
         /*DETAIL INFORMATION*/
         setupDetail();
-        boolean status = AppSetting.getRecordingStatus(getApplicationContext());
-        if (status){
-            btn_toggle.setText("Stop");
-        } else {
-            btn_toggle.setText("Start");
-        }
 
     }
 

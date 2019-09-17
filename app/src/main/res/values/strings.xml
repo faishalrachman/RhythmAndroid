@@ -81,7 +81,7 @@
     <string name="no_phone_num">No phone number available</string>
     <!--<string name="sample_email">arahsafari@telemedicine.co.id</string>-->
     <!--<string name="sample_password">arahsafari</string>-->
-    <string name="sample_email"></string>
+    <string name="sample_email">\@telemedicine.co.id</string>
     <string name="sample_password"></string>
 
 </resources>

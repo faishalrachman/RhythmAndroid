@@ -74,6 +74,7 @@ public class AppSetting {
         String topic = pref.getString("topic", "rhythm/ECG001");
         return topic;
     }
+
     public static String getBluetoothDeviceName(Context context) {
         SharedPreferences pref = context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE);
         String topic = pref.getString("bluetoothDeviceName", "ECG001");
@@ -208,5 +209,6 @@ public class AppSetting {
         String ts = tsLong.toString();
         return ts;
     }
+
 
 }

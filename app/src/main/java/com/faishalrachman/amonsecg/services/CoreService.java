@@ -11,11 +11,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
 import android.os.SystemClock;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -25,6 +29,7 @@ import com.androidnetworking.interfaces.UploadProgressListener;
 import com.faishalrachman.amonsecg.AppSetting;
 import com.faishalrachman.amonsecg.R;
 import com.faishalrachman.amonsecg.algo.ECGClassification;
+import com.faishalrachman.amonsecg.utils.IntentHelper;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -106,12 +111,15 @@ public class CoreService extends Service {
                 callback = new MqttCallbackExtended() {
                     @Override
                     public void connectComplete(boolean reconnect, String serverURI) {
+                        sendToast("Connected to MQTT Server");
                         Log.d(TAG, "connectComplete: ");
                     }
 
                     @Override
                     public void connectionLost(Throwable cause) {
+
                         Log.d(TAG, "connectionLost: ");
+                        sendToast("MQTT Connection Lost");
                     }
 
                     @Override
@@ -163,11 +171,13 @@ public class CoreService extends Service {
                 MqttConnectOptions options = new MqttConnectOptions();
                 options.setAutomaticReconnect(true);
                 try {
+                    Toast.makeText(ctx, "Connecting MQTT to SERVER", Toast.LENGTH_SHORT).show();
                     mqttClient.connect(options, ctx, new IMqttActionListener() {
                         @Override
                         public void onSuccess(IMqttToken asyncActionToken) {
                                 Log.d(TAG, "onSuccess: MQTT Success ");
                                 Log.d(TAG, "onSuccess: tidak ada subscribe2an");
+                                sendToast("MQTT Connected");
                                 uploadECGSignal();
 
 //                                String deviceName = AppSetting.getBluetoothDeviceName(ctx);
@@ -215,7 +225,7 @@ public class CoreService extends Service {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationManager manager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
 
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "SERVICE", NotificationManager.IMPORTANCE_LOW);
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "Monitoring Notification", NotificationManager.IMPORTANCE_LOW);
             manager.createNotificationChannel(channel);
 
         }
@@ -339,6 +349,7 @@ public class CoreService extends Service {
         bluetooth.setDeviceCallback(new DeviceCallback() {
             @Override
             public void onDeviceConnected(BluetoothDevice device) {
+                sendToast(device.getName() + " is connected");
                 Log.d(TAG, "onDeviceConnected: " + device.getName());
                 bluetooth.send("Connected");
 
@@ -349,10 +360,12 @@ public class CoreService extends Service {
 
             @Override
             public void onDeviceDisconnected(BluetoothDevice device, String message) {
+                Toast.makeText(ctx, "Bluetooth is disconnected", Toast.LENGTH_SHORT).show();
                 notif = getNotification("Bluetooth is disconnected");
                 startForeground(ID, notif);
                 reconnect();
                 saveECGSignal();
+                sendToast(device.getName() + " is disconnected");
             }
 
             @Override
@@ -418,7 +431,7 @@ public class CoreService extends Service {
 
             @Override
             public void onError(int errorCode) {
-
+                sendToast("Bluetooth failed to connect");
                 Log.d(TAG, "onError: " + errorCode);
                 reconnect();
                 saveECGSignal();
@@ -426,6 +439,7 @@ public class CoreService extends Service {
 
             @Override
             public void onConnectError(BluetoothDevice device, String message) {
+                sendToast("Bluetooth failed to connect");
                 Log.d(TAG, "onConnectError: " + message);
                 reconnect();
                 saveECGSignal();
@@ -439,6 +453,7 @@ public class CoreService extends Service {
 //    }
 
     void reconnect() {
+        sendToast("Start reconnecting");
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -450,13 +465,26 @@ public class CoreService extends Service {
         connectBluetooth(name);
     }
     void connectBluetooth(String name) {
+
+        sendToast("Connecting to "+name);
         bluetooth.onStart();
         if (bluetooth.isEnabled()) {
             Log.d(TAG, "connectBluetooth: Connecting to" + name);
             bluetooth.connectToName(name);
         }
     }
+    void sendToast(String message){
+        Handler mainHandler = new Handler(getMainLooper());
 
+        mainHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                // Do your stuff here related to UI, e.g. show toast
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
