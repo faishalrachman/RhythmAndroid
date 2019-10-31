@@ -14,6 +14,7 @@ import android.net.Uri;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -26,6 +27,7 @@ import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
+import com.androidnetworking.core.Core;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.faishalrachman.amonsecg.services.CoreService;
@@ -81,6 +83,10 @@ public class DetailActivity extends AppCompatActivity {
 //    @BindView(R.id.graphView) SparkView sparkView;
     @BindView(R.id.graphView2)
     LineChart lineChart;
+    @BindView(R.id.graphView3)
+    LineChart lineChart2;
+    @BindView(R.id.graphView4)
+    LineChart lineChart3;
 //    com.github.mikephil.charting.charts.Chart
 
 
@@ -125,24 +131,25 @@ public class DetailActivity extends AppCompatActivity {
             AppSetting.makeACall(DetailActivity.this, phoneEmergencyNumber);
         else Toast.makeText(this, getString(R.string.no_phone_num), Toast.LENGTH_SHORT).show();
     }
+
     @OnClick(R.id.btn_toggle)
-    void onClickCall(){
+    void onClickCall() {
         if (coreService != null) {
-            if (!AppSetting.getRecordingStatus(getApplicationContext())){
+            if (!AppSetting.getRecordingStatus(getApplicationContext())) {
 
                 Long tsLong = System.currentTimeMillis() / 1000;
                 String name = AppSetting.getBluetoothDeviceName(getApplicationContext());
-                String filename = tsLong.toString() + "-"+ name;
+                String filename = tsLong.toString() + "-" + name;
 //                Log.d(TAG, "startRecording: filename="+filename);
-                AppSetting.setRecordingStatus(getApplicationContext(),true);
-                AppSetting.setRecordFilename(getApplicationContext(),filename);
+                AppSetting.setRecordingStatus(getApplicationContext(), true);
+                AppSetting.setRecordFilename(getApplicationContext(), filename);
                 btn_toggle.setText("Stop");
-                AppSetting.setRecordingStatus(getApplicationContext(),true);
-                Log.d(TAG, "onClickCall: "+filename);
+                AppSetting.setRecordingStatus(getApplicationContext(), true);
+                Log.d(TAG, "onClickCall: " + filename);
             } else {
 //                coreService.stopRecording();
                 btn_toggle.setText("Start");
-                AppSetting.setRecordingStatus(getApplicationContext(),false);
+                AppSetting.setRecordingStatus(getApplicationContext(), false);
 //                coreService.saveECGSignal();
 //                coreService.uploadECGSignal();
             }
@@ -188,10 +195,18 @@ public class DetailActivity extends AppCompatActivity {
     private List<String> subscribedTopic = new ArrayList<>();
     private List<Float> ecgData = new ArrayList<>();
     private List<Float> ecgAllData = new ArrayList<>();
+    private List<Float> ecgAllData2 = new ArrayList<>();
+    private List<Float> ecgAllData3 = new ArrayList<>();
     //DATA BUAT MPANDROIDCHART
     private List<Entry> ecgEntry = new ArrayList<>();
+    private List<Entry> ecgEntry2 = new ArrayList<>();
+    private List<Entry> ecgEntry3 = new ArrayList<>();
     private LineDataSet dataset;
+    private LineDataSet dataset2;
+    private LineDataSet dataset3;
     private LineData linedata;
+    private LineData linedata2;
+    private LineData linedata3;
     String topicPrefix = "";
     //END
 
@@ -208,81 +223,6 @@ public class DetailActivity extends AppCompatActivity {
     int fps_counter = 0;
     MyTimerTask ttask = new MyTimerTask();
     Timer t = new Timer();
-
-//    void setupMqttCallBack() {
-//        mqttClient.setCallback(new MqttCallback() {
-//            @Override
-//            public void connectionLost(Throwable cause) {
-//                Toast.makeText(getApplicationContext(), "Connection Lost", Toast.LENGTH_SHORT).show();
-//                System.out.println("Connection was lost!");
-////                t.cancel();
-//            }
-//
-//            @Override
-//            public void messageArrived(String topic, MqttMessage message) throws Exception {
-////                System.out.println("Message Arrived!: " + topic + ": " + new String(message.getPayload()));
-//
-//
-//                String[] splitedTopic = topic.split("/");
-//                System.out.println(splitedTopic);
-//                switch (splitedTopic[2]) {//awalnya 2
-//                    case "bpm":
-//                        itemRate.setText(String.format(Locale.US, "%.0f", Float.parseFloat(new String(message.getPayload()))));
-//                        break;
-////                    case "ecg"://awalnya visual
-////                        fps_counter += 1;
-////                        String[] data = new String(message.getPayload()).split(":");
-////                        for (int i = 1; i < data.length; i++) {
-////                            ecgAllData.add(Float.parseFloat(data[i]));
-////                        }
-////                        isNerima = true;
-////                        lineChart.invalidate();
-////                        break;
-//                    case "n":
-//                        String alertString = new String(message.getPayload());
-//                        switch (alertString.toLowerCase()) {
-//                            case "normal":
-//                                alertTitle.setTextColor(getResources().getColor(R.color.colorGreen));
-//                                alertTitle.setText("Condition: Normal");
-//                                alertImage.setImageResource(R.drawable.ic_error_green);
-//                                break;
-//                            case "pvc":
-//                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
-//                                alertTitle.setText("Condition: Premature Ventricular Contraction Detected");
-//                                alertImage.setImageResource(R.drawable.ic_error_red);
-//                                soundOnDrop();
-//                                break;
-//                            case "vf":
-//                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
-//                                alertTitle.setText("Condition: Ventricular Fibrillation");
-//                                alertImage.setImageResource(R.drawable.ic_error_red);
-//                                soundOnDrop();
-//                                break;
-//                            case "heartblock":
-//                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
-//                                alertTitle.setText("Condition: Heartblock Detected");
-//                                alertImage.setImageResource(R.drawable.ic_error_red);
-//                                soundOnDrop();
-//                                break;
-//                            case "af":
-//                                alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
-//                                alertTitle.setText("Condition: Atrial Fibrilation Detected");
-//                                alertImage.setImageResource(R.drawable.ic_error_red);
-//                                soundOnDrop();
-//                                break;
-//
-//                        }
-//                        break;
-//                }
-//
-//            }
-//
-//            @Override
-//            public void deliveryComplete(IMqttDeliveryToken token) {
-//                Log.i("MQTT", "Delivery Complete!");
-//            }
-//        });
-//    }
 
     void setupDetail() {
         AppSetting.AccountInfo info = AppSetting.getSavedAccount(DetailActivity.this);
@@ -342,7 +282,7 @@ public class DetailActivity extends AppCompatActivity {
                     public void onError(ANError anError) {
                         AppSetting.dismissProgressDialog();
                         Log.i("Detail", "onError: " + anError.getErrorBody());
-                        if (anError.getErrorCode() == 401){
+                        if (anError.getErrorCode() == 401) {
                             Toast.makeText(DetailActivity.this, "Session anda telah habis, silahkan login kembali", Toast.LENGTH_SHORT).show();
                             AppSetting.setLogin(DetailActivity.this, AppSetting.LOGGED_OUT);
                             finish();
@@ -382,10 +322,7 @@ public class DetailActivity extends AppCompatActivity {
         }
     }
 
-    void setupChart() {
-        ecgEntry.add(new Entry(0, 0));
-
-        dataset = new LineDataSet(ecgEntry, "ECG Data");
+    void initializeChart(LineDataSet dataset, LineChart lineChart, LineData linedata, float minScaleY, float maxScaleY) {
         dataset.setColor(getResources().getColor(R.color.colorPrimary));
         dataset.setLineWidth(2);
         dataset.setDrawCircles(false);
@@ -394,27 +331,26 @@ public class DetailActivity extends AppCompatActivity {
         dataset.setDrawValues(false);
         dataset.setFillColor(R.color.colorPrimary);
         dataset.setValueTextColor(R.color.colorPrimaryDark);
-
-        linedata = new LineData(dataset);
         lineChart.setData(linedata);
         lineChart.setDrawMarkers(false);
         lineChart.setDrawBorders(true);
         lineChart.setBorderWidth(0.001f);
         lineChart.setVisibleXRangeMaximum(150);
         lineChart.setVisibleXRangeMinimum(0);
+        lineChart.setScaleEnabled(false);
+
+
         Description desc = new Description();
         desc.setText("ECG Data");
         lineChart.setDescription(desc);
         lineChart.isAutoScaleMinMaxEnabled();
 //        lineChart.setScaleMinima(800,1000);
 
-        float min = -2f;
-        float max = 3f;
         int count = 10;
         YAxis leftAxis = lineChart.getAxisLeft();
 //                        leftAxis.setAxisLineWidth(0.01f);
-        leftAxis.setAxisMinimum(min);
-        leftAxis.setAxisMaximum(max);
+        leftAxis.setAxisMinimum(minScaleY);
+        leftAxis.setAxisMaximum(maxScaleY);
 //                        leftAxis.setGranularity(0.5f);
         leftAxis.setGridLineWidth(1);
         leftAxis.setGranularityEnabled(true);
@@ -422,8 +358,8 @@ public class DetailActivity extends AppCompatActivity {
         leftAxis.setAxisLineColor(R.color.colorGreen);
         leftAxis.setLabelCount(count, true);
         YAxis rightAxis = lineChart.getAxisRight();
-        rightAxis.setAxisMaximum(max);
-        rightAxis.setAxisMinimum(min);
+        rightAxis.setAxisMaximum(maxScaleY);
+        rightAxis.setAxisMinimum(minScaleY);
         rightAxis.setDrawLabels(false);
         rightAxis.setGridLineWidth(1);
         rightAxis.setLabelCount(count, true);
@@ -431,93 +367,27 @@ public class DetailActivity extends AppCompatActivity {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setGranularity(1);
         xAxis.setDrawLabels(false);
-        xAxis.setLabelCount(40, true);
+        xAxis.setLabelCount(20, true);
         xAxis.setDrawGridLines(true);
         Log.d("Spacing", "Top = " + String.valueOf(rightAxis.getSpaceTop()) + "Bottom = " + String.valueOf(rightAxis.getSpaceBottom()));
-        t.scheduleAtFixedRate(ttask, 17, 10);
+
     }
 
-    void setupMqtt(String deviceId) {
-        /*MQTT RELATED*/
-//        subscribedTopic.add("rhythm/"+deviceId+"/visual");
-        Log.d(TAG, "setupMqtt: DEVICE=" + deviceId);
-
-        this.topicPrefix = AppSetting.getTopic(DetailActivity.this);
-
-        String bpm = topicPrefix + "/bpm";
-        String notification = topicPrefix + "/n";
-        String ecg = topicPrefix + "/ecg";
-        System.out.println(bpm);
-        subscribedTopic.add(bpm);
-        subscribedTopic.add(notification);
-//        subscribedTopic.add(ecg);
-        if (mqttClient == null) {
-            mqttClient = AppSetting.getMqttClient(DetailActivity.this);
-//            try {
-//                Log.i("MQTT", "SETUP");
-//                System.out.println("Setup Mqtt");
-//                System.out.println();
-//                Toast.makeText(getApplicationContext(), "Setup MQTT", Toast.LENGTH_SHORT).show();
-//                mqttClient.connect(DetailActivity.this, new IMqttActionListener() {
-//                    @Override
-//                    public void onSuccess(IMqttToken asyncActionToken) {
-//
-//                        Log.i("MQTT", "Connected");
-//                        Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_SHORT).show();
-//
-//                        resumeMqtt();
-//                    }
-//
-//                    @Override
-//                    public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
-//                        System.out.println("gagalkonek");
-////                        System.out.println(asyncActionToken.getResponse().toString());
-//                    }
-//                });
-//            } catch (MqttException ex) {
-//                Log.e("MqttSetup", "can't connect");
-//                ex.printStackTrace();
-//            }
-        }
-
-        Uri sound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        // media player
-        this.mediaPlayer = MediaPlayer.create(getApplicationContext(), sound);
-        if (this.mediaPlayer != null) {
-            this.mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    ringtoneIsIdle = true;
-                }
-            });
-            this.mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
-                @Override
-                public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
-                    ringtoneIsIdle = true;
-                    return true;
-                }
-            });
-        }
-    }
-
-    private void resumeMqtt() {
-//        setupMqttCallBack();
-        System.out.println("detail resume subs " + subscribedTopic.size());
-        for (String topic : subscribedTopic) {
-            System.out.println("detail resume subs " + topic);
-//            try {
-//                if (mqttClient != null) {
-//                    mqttClient.subscribe(topic, 0);
-//                    Log.i("MQTT", "SUBSCRIBE");
-//                } else
-//                    Log.i("MQTT", "SUBSCRIBE NULL");
-//                //  System.out.println("MQTT is NULL");
-////                Toast.makeText(getApplicationContext(),"MQTT NULL",Toast.LENGTH_SHORT).show();
-//            } catch (MqttException ex) {
-//                ex.printStackTrace();
-//            }
-        }
+    void setupChart() {
+        ecgEntry.add(new Entry(0, 0));
+        ecgEntry2.add(new Entry(0, 0));
+        ecgEntry3.add(new Entry(0, 0));
+        dataset = new LineDataSet(ecgEntry, "ECG Data");
+        linedata = new LineData(dataset);
+        dataset2 = new LineDataSet(ecgEntry2, "ECG Data");
+        linedata2 = new LineData(dataset2);
+        dataset3 = new LineDataSet(ecgEntry3, "ECG Data");
+        linedata3 = new LineData(dataset3);
+        initializeChart(dataset, lineChart, linedata, -2f, 3f);
+        initializeChart(dataset2, lineChart2, linedata2, -2f, 3f);
+        initializeChart(dataset3, lineChart3, linedata3, -2f, 3f);
+        if (!ttask.is_running)
+            t.scheduleAtFixedRate(ttask, 5, 5);
     }
 
     @Override
@@ -530,7 +400,7 @@ public class DetailActivity extends AppCompatActivity {
         super.onStart();
 
         boolean status = AppSetting.getRecordingStatus(getApplicationContext());
-        if (status){
+        if (status) {
             btn_toggle.setText("Stop");
         } else {
             btn_toggle.setText("Start");
@@ -542,29 +412,21 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     protected void onDestroy() {
-//        if (bluetooth.isConnected())
-//            bluetooth.disconnect();
-//        Log.i("Detail", "onDestroy: ");
-//        for (String topic : subscribedTopic) {
-//            Log.i("Detail", "onDestroy: " + topic);
-//            try {
-//                mqttClient.unsubscribe(topic);
-//            } catch (MqttException ex) {
-//                // do nothing
-//                // un-subscribe failed
-//            }
-//        }
-//
-//        if (mqttClient != null) {
-//            mqttClient.unregisterResources();
-//            mqttClient.close();
-//        }
         Log.d(TAG, "onDestroy: Stop SErvice");
-        if (mServiceIntent != null)
-            stopService(mServiceIntent);
-        if (updateUIReceiver != null)
-            unregisterReceiver(updateUIReceiver);
+        try {
+            if (mServiceIntent != null)
+                stopService(mServiceIntent);
+            if (updateUIReceiver != null)
+                unregisterReceiver(updateUIReceiver);
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
         super.onDestroy();
     }
 
@@ -575,30 +437,54 @@ public class DetailActivity extends AppCompatActivity {
 
         @Override
         public void run() {
-            is_running = true;
+            try {
+                is_running = true;
 //        Toast.makeText(getApplicationContext(),"Ganteng",Toast.LENGTH_SHORT).show();
-            if (ecgAllData.size() > 3) {
-                float data = ecgAllData.get(0);
-                linedata.addEntry(new Entry(Z, data), 0);//INSERT LAST
-                Z++;
-                ecgAllData.remove(0);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+                if (ecgAllData.size() > 3 && ecgAllData2.size() > 3 && ecgAllData3.size() > 3) {
+                    if (ecgAllData.get(0) != null && ecgAllData2.get(0) != null && ecgAllData3.get(0) != null) {
+                        try {
+                            float data = ecgAllData.get(0);
+                            float data2 = ecgAllData2.get(0);
+                            float data3 = ecgAllData3.get(0);
+                            linedata.addEntry(new Entry(Z, data), 0);//INSERT LAST
+                            linedata2.addEntry(new Entry(Z, data2), 0);//INSERT LAST
+                            linedata3.addEntry(new Entry(Z, data3), 0);//INSERT LAST
+                            Z++;
+                            ecgAllData.remove(0);
+                            ecgAllData2.remove(0);
+                            ecgAllData3.remove(0);
+                        } catch (IndexOutOfBoundsException e) {
+                            e.printStackTrace();
+                        }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
 //                        lineChart.setData(linedata);
-                        if (Z > 200) {
+                                if (Z > 200) {
 //                            dataset.removeFirst();
-                            lineChart.setVisibleXRangeMaximum(1000);
-                            lineChart.moveViewToX(Z - 200);
+                                    lineChart.setVisibleXRangeMaximum(800);
+                                    lineChart.moveViewToX(Z - 200);
+                                    lineChart2.setVisibleXRangeMaximum(800);
+                                    lineChart2.moveViewToX(Z - 200);
+                                    lineChart3.setVisibleXRangeMaximum(800);
+                                    lineChart3.moveViewToX(Z - 200);
 //                            lineChart.centerViewTo(Z-200,0, YAxis.AxisDependency.RIGHT);
 //                            dataset.removeEntry(0);
 
-                        }
-                        lineChart.notifyDataSetChanged();
-                        lineChart.invalidate();
+                                }
+                                lineChart.notifyDataSetChanged();
+                                lineChart.invalidate();
+                                lineChart2.notifyDataSetChanged();
+                                lineChart2.invalidate();
+                                lineChart3.notifyDataSetChanged();
+                                lineChart3.invalidate();
+                            }
+                        });
                     }
-                });
 
+                }
+            } catch (NullPointerException e) {
+                e.printStackTrace();
             }
         }
     }
@@ -623,29 +509,35 @@ public class DetailActivity extends AppCompatActivity {
         updateUIReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Log.d(TAG, "onReceive: "+intent.getAction());
+                Log.d(TAG, "onReceive: " + intent.getAction());
                 if (intent != null) {
                     if (intent.getAction().contains("service.to.activity.transfer")) {
                         String ecg = intent.getStringExtra("signal");
-                        String[] data = ecg.split(":");
-                        ArrayList<Float> local = new ArrayList<>();
-                        for (int i = 1; i < data.length; i++) {
-//                            ecgAllData.add(Float.parseFloat(data[i]));
-                            local.add(Float.parseFloat(data[i]));
-                        }
-//                        local = ECGClassification.five_point_derivative(local);
-//                        local = ECGClassification.low_pass_filter(local);
-//                        Log.d(TAG, "onReceive: local="+local.toString());
-//                        local = ECGClassification.adaptive_filter(local);
-//                        Log.d(TAG, "onReceive: local="+local.toString());
-//                        local = ECGClassification.rescale_signal(local);
-                        ecgAllData.addAll(local);
+                        String[] data = ecg.split(";");
+                        String time_stamp = data[0];
+                        String[] signal1 = data[1].split(":");
+                        String[] signal2 = data[2].split(":");
+                        String[] signal3 = data[3].split(":");
 
-                    } else if (intent.getAction().contains("publish.classification")){
+                        ArrayList<Float> local = new ArrayList<>();
+                        ArrayList<Float> local2 = new ArrayList<>();
+                        ArrayList<Float> local3 = new ArrayList<>();
+                        for (int i = 0; i < signal1.length; i++) {
+//                            ecgAllData.add(Float.parseFloat(data[i]));
+                            local.add(Float.parseFloat(signal1[i]));
+                            local2.add(Float.parseFloat(signal2[i]));
+                            local3.add(Float.parseFloat(signal3[i]));
+                        }
+//
+                        ecgAllData.addAll(local);
+                        ecgAllData2.addAll(local2);
+                        ecgAllData3.addAll(local3);
+
+                    } else if (intent.getAction().contains("publish.classification")) {
                         Log.d(TAG, "onReceive: AYANAONIEU");
                         String notif = intent.getStringExtra("notification");
-                        int bpm = intent.getIntExtra("hr",65);
-                        Log.d(TAG, "onReceive: "+bpm);
+                        int bpm = intent.getIntExtra("hr", 65);
+                        Log.d(TAG, "onReceive: " + bpm);
                         itemRate.setText(String.valueOf(bpm));
                         NotificationHelper notificationHelper = new NotificationHelper(getApplicationContext());
                         switch (notif.toLowerCase()) {
@@ -659,32 +551,32 @@ public class DetailActivity extends AppCompatActivity {
                                 alertTitle.setText("Condition: Premature Ventricular Contraction Detected");
                                 alertImage.setImageResource(R.drawable.ic_error_red);
                                 soundOnDrop();
-                                notificationHelper.createNotification("Rhythm","Premature Ventricular Contraction Detected");
+                                notificationHelper.createNotification("Rhythm", "Premature Ventricular Contraction Detected");
                                 break;
                             case "vf":
                                 alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
                                 alertTitle.setText("Condition: Ventricular Fibrillation");
                                 alertImage.setImageResource(R.drawable.ic_error_red);
                                 soundOnDrop();
-                                notificationHelper.createNotification("Rhythm","Ventricular Fibrillation Detected");
+                                notificationHelper.createNotification("Rhythm", "Ventricular Fibrillation Detected");
                                 break;
                             case "heartblock":
                                 alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
                                 alertTitle.setText("Condition: Heartblock Detected");
                                 alertImage.setImageResource(R.drawable.ic_error_red);
                                 soundOnDrop();
-                                notificationHelper.createNotification("Rhythm","Heartblock Detected");
+                                notificationHelper.createNotification("Rhythm", "Heartblock Detected");
                                 break;
                             case "af":
                                 alertTitle.setTextColor(getResources().getColor(R.color.colorRed));
                                 alertTitle.setText("Condition: Atrial Fibrilation Detected");
                                 alertImage.setImageResource(R.drawable.ic_error_red);
                                 soundOnDrop();
-                                notificationHelper.createNotification("Rhythm","Atrial Fibrilation Detected");
+                                notificationHelper.createNotification("Rhythm", "Atrial Fibrilation Detected");
                                 break;
                         }
-                    } else if (intent.getAction().contains("make.toast")){
-                        Log.d(TAG, "onReceive: "+intent.getAction());
+                    } else if (intent.getAction().contains("make.toast")) {
+                        Log.d(TAG, "onReceive: " + intent.getAction());
                         Toast.makeText(context, intent.getStringExtra("message"), Toast.LENGTH_LONG).show();
                     }
                 }
@@ -747,98 +639,30 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(new Intent(DetailActivity.this, AboutActivity.class));
                 break;
             case R.id.action_logout:
-                if (isMyServiceRunning(CoreService.class))
-                    stopService(mServiceIntent);
-                unregisterReceiver(updateUIReceiver);
-                Toast.makeText(this, "Logout berhasil, Silahkan jalankan kembali aplikasi ini", Toast.LENGTH_SHORT).show();
-                AppSetting.setLogin(DetailActivity.this, AppSetting.LOGGED_OUT);
-                try{
-                    CoreService.bluetooth.disconnect();
+                if (AppSetting.getRecordingStatus(getApplicationContext())) {
+                    Toast.makeText(getApplicationContext(), "Mohon di stop terlebih dahulu sebelum logout aplikasi", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Logout berhasil, Silahkan jalankan kembali aplikasi ini", Toast.LENGTH_SHORT).show();
+                    AppSetting.setLogin(DetailActivity.this, AppSetting.LOGGED_OUT);
+                    try {
+                        CoreService.bluetooth.disconnect();
 
-                } catch (Exception e){
-                    e.printStackTrace();
-                }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 //                System.exit(0);
 //                startActivity(new Intent(DetailActivity.this, LoginActivity.class));
-//                finish();
+
+//                    stopService(new Intent(DetailActivity.this, CoreService.class));
+                    super.onBackPressed();
+                    finish();
+
+                    coreService.stopThis();
+//                    System.exit(0);
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    void reconnect() {
-        connectBluetooth(this.deviceId);
-    }
-
-    void setupBluetooth() {
-        bluetooth = new Bluetooth(getApplicationContext());
-        bluetooth.setDeviceCallback(new DeviceCallback() {
-            @Override
-            public void onDeviceConnected(BluetoothDevice device) {
-                Log.d(TAG, "onDeviceConnected: " + device.getName());
-                bluetooth.send("Connected");
-                AppSetting.dismissProgressDialog();
-//                setupChart();
-            }
-
-            @Override
-            public void onDeviceDisconnected(BluetoothDevice device, String message) {
-                Log.d(TAG, "onDeviceDisconnected: " + message);
-                reconnect();
-            }
-
-            @Override
-            public void onMessage(String message) {
-                String[] data = message.split(":");
-                for (int i = 1; i < data.length; i++) {
-                    ecgAllData.add(Float.parseFloat(data[i]));
-                }
-//                if (mqttClient != null && mqttClient.isConnected()) {
-//                    try {
-//
-//                        mqttClient.publish(topicPrefix + "/ecg", message.getBytes(), 0, true);
-//                    } catch (MqttException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-                runOnUiThread(
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                                fps_counter += 1;
-                                isNerima = true;
-                                lineChart.invalidate();
-                            }
-                        }
-                );
-                Log.d(TAG, "onMessage: " + message);
-            }
-
-            @Override
-            public void onError(int errorCode) {
-
-                Log.d(TAG, "onError: " + errorCode);
-                reconnect();
-            }
-
-            @Override
-            public void onConnectError(BluetoothDevice device, String message) {
-                Log.d(TAG, "onConnectError: " + message);
-                reconnect();
-            }
-        });
-    }
-
-    void connectBluetooth(String name) {
-        this.deviceId = name;
-        AppSetting.setBluetoothDeviceName(getApplicationContext(), name);
-        bluetooth.onStart();
-        if (bluetooth.isEnabled()) {
-            Log.d(TAG, "connectBluetooth: Connecting to" + name);
-            bluetooth.connectToName(name);
-        } else {
-            bluetooth.showEnableDialog(this);
-        }
     }
 
 
@@ -857,5 +681,11 @@ public class DetailActivity extends AppCompatActivity {
         }
         Log.i("isMyServiceRunning?", false + "");
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+//        super.onBackPressed();
     }
 }

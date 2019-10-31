@@ -42,6 +42,35 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618391898190:android:c77b0939485e87d3619b1f",
+        "android_client_info": {
+          "package_name": "com.ipat.RhythmBT3Lead"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618391898190-ig22510a5da6c6s5j5ekeh8nfugchb5c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDffoqV44m9PRWYOJ67n7XkKQFg9cXHXII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618391898190-ig22510a5da6c6s5j5ekeh8nfugchb5c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

@@ -297,6 +297,16 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/graphView3"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/graphView4"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            />
         <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:visibility="gone"
             android:layout_marginTop="@dimen/activity_horizontal_margin"

